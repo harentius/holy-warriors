@@ -1,0 +1,20 @@
+{
+  "name": "holy-warriors",
+  "authors": [
+    "Yaroslav Osypenko <harentius@yandex.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phaser": "^2.6.2"
+  }
+}
