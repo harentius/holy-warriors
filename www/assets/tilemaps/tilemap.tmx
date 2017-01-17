@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="10" tilewidth="16" tileheight="16" nextobjectid="48">
+ <tileset firstgid="1" name="sprite" tilewidth="16" tileheight="16" tilecount="8" columns="4">
+  <image source="../img/sprite.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="9" name="coffee" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/coffee.png" width="16" height="16"/>
+ </tileset>
+ <tileset firstgid="10" name="crutch" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/crutch.png" width="16" height="16"/>
+ </tileset>
+ <layer name="World" width="40" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,3,4,8,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,3,4,3,4,3,3,4,8,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6
+</data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="3" gid="9" x="224.5" y="127.5" width="16" height="16"/>
+  <object id="26" gid="9" x="306.25" y="127.25" width="16" height="16"/>
+  <object id="27" gid="9" x="324" y="127.25" width="16" height="16"/>
+  <object id="28" gid="9" x="529.25" y="127" width="16" height="16"/>
+  <object id="29" gid="9" x="546.5" y="126.75" width="16" height="16"/>
+  <object id="30" gid="9" x="83" y="126.5" width="16" height="16"/>
+  <object id="31" gid="9" x="496.333" y="47" width="16" height="16"/>
+  <object id="36" gid="10" x="352.667" y="79" width="16" height="16"/>
+  <object id="44" gid="10" x="376.333" y="78.6667" width="16" height="16"/>
+  <object id="47" gid="10" x="514" y="46.3333" width="16" height="16"/>
+ </objectgroup>
+</map>

@@ -1,3 +1,4 @@
 /www/*
+!/www/assets/
 /node_modules/
 build-config.json
