@@ -11,6 +11,7 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
     preload: () => {
         game.load.spritesheet('player', 'assets/img/character.png');
         game.load.image('sprite', 'assets/img/sprite.png');
+        game.load.image('tree', 'assets/img/tree.png');
         game.load.spritesheet('coffee', 'assets/img/coffee.png');
         game.load.spritesheet('crutch', 'assets/img/crutch.png');
         game.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
@@ -20,6 +21,7 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
 
         let map = game.add.tilemap('tilemap');
         map.addTilesetImage('sprite');
+        map.addTilesetImage('tree');
         map.setCollisionBetween(1, 8);
         layer = map.createLayer('World');
         layer.setScale(3, 3);
