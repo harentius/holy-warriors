@@ -18,7 +18,7 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
         game.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
     },
     create: () => {
-        game.stage.backgroundColor = '#EEE';
+        game.stage.backgroundColor = '#b5e0ff';
 
         let map = game.add.tilemap('tilemap');
         map.addTilesetImage('sprite');
