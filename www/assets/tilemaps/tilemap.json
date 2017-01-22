@@ -135,6 +135,18 @@
                  "width":16,
                  "x":514,
                  "y":190.333
+                }, 
+                {
+                 "gid":35,
+                 "height":16,
+                 "id":74,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":156.666666666667,
+                 "y":273
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -143,7 +155,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":58,
+ "nextobjectid":75,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":16,
@@ -212,6 +224,19 @@
          "tilecount":4,
          "tileheight":16,
          "tilewidth":16
+        }, 
+        {
+         "columns":1,
+         "firstgid":35,
+         "image":"..\/img\/bug.png",
+         "imageheight":16,
+         "imagewidth":32,
+         "margin":0,
+         "name":"bug",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":16,
+         "tilewidth":32
         }],
  "tilewidth":16,
  "version":1,

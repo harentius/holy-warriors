@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="19" tilewidth="16" tileheight="16" nextobjectid="58">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="19" tilewidth="16" tileheight="16" nextobjectid="75">
  <tileset firstgid="1" name="sprite" tilewidth="16" tileheight="16" tilecount="8" columns="4">
   <image source="../img/sprite.png" width="64" height="32"/>
  </tileset>
@@ -14,6 +14,9 @@
  </tileset>
  <tileset firstgid="31" name="cactus" tilewidth="16" tileheight="16" tilecount="4" columns="2">
   <image source="../img/cactus.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="bug" tilewidth="32" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/bug.png" width="32" height="16"/>
  </tileset>
  <layer name="World" width="40" height="19">
   <data encoding="csv">
@@ -49,5 +52,6 @@
   <object id="36" gid="10" x="352.667" y="223" width="16" height="16"/>
   <object id="44" gid="10" x="376.333" y="222.667" width="16" height="16"/>
   <object id="47" gid="10" x="514" y="190.333" width="16" height="16"/>
+  <object id="74" gid="35" x="156.667" y="273" width="32" height="16"/>
  </objectgroup>
 </map>

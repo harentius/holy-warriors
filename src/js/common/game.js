@@ -4,7 +4,8 @@ let cursors,
     jumpTimer = 0,
     layer,
     coffee,
-    crutch
+    crutch,
+    bug
 ;
 
 let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'holy-warriors', {
@@ -13,6 +14,7 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
         game.load.image('sprite', 'assets/img/sprite.png');
         game.load.image('tree', 'assets/img/tree.png');
         game.load.spritesheet('coffee', 'assets/img/coffee.png');
+        game.load.spritesheet('bug', 'assets/img/bug.png');
         game.load.spritesheet('crutch', 'assets/img/crutch.png');
         game.load.spritesheet('cactus', 'assets/img/cactus.png');
         game.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
@@ -40,6 +42,11 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
         crutch.scale.setTo(3, 3);
         map.createFromObjects('Objects', 10, 'crutch', 0, true, false, crutch);
 
+        bug = game.add.group();
+        bug.enableBody = true;
+        bug.scale.setTo(3, 3);
+        map.createFromObjects('Objects', 35, 'bug', 0, true, false, bug);
+
         player = game.add.sprite(100, 0, 'player');
         player.scale.setTo(3, 3);
         game.physics.arcade.enable(player);
@@ -55,6 +62,7 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
         game.physics.arcade.collide(player, layer);
         game.physics.arcade.overlap(player, coffee, collectCoffee, null, this);
         player.body.velocity.x = 0;
+        bug.x -= 1;
 
         if (cursors.left.isDown) {
             player.body.velocity.x = -150;
