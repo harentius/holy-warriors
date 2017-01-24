@@ -2,3 +2,5 @@
 !/www/assets/
 /node_modules/
 build-config.json
+/platforms
+/plugins

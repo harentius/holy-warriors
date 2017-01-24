@@ -9,7 +9,10 @@ let gulp = require('gulp'),
     nunjucks = require('gulp-nunjucks'),
     minify = require('gulp-minify'),
     cleanCSS = require('gulp-clean-css'),
-    babel = require('gulp-babel')
+    babelify = require('babelify'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer')
 ;
 
 // Environment detecting
@@ -29,7 +32,7 @@ if (!argv.env) {
 }
 
 gulp.task('less', function () {
-    let resource = gulp.src('./css/**/*.less')
+    let resource = gulp.src('./src/css/**/*.less')
         .pipe(less())
         .pipe(concat('style.css'))
     ;
@@ -41,44 +44,29 @@ gulp.task('less', function () {
     resource.pipe(gulp.dest('./www/css/'))
 });
 
-gulp.task('js-lib', function () {
-    let resource = gulp.src(['./src/js/*.js', './src/js/common/**/*.js'])
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(concat('lib.js'))
+gulp.task('js', function () {
+    let resource = browserify({
+            entries: `./src/js/${platform}/app.js`,
+            debug: false
+        })
+        .transform(babelify, { presets: ['es2015'] })
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
     ;
 
     if (env === 'prod') {
-        resource = resource.pipe(minify({
-            noSource: true,
-            ext: {
-                min: '.js'
-            }
-        }))
+        resource = resource
+            .pipe(minify({
+                noSource: true,
+                ext: {
+                    min: '.js'
+                }
+            }))
+        ;
     }
 
-    resource.pipe(gulp.dest('./www/js/'));
-});
-
-gulp.task('js-app', function () {
-    let resource = gulp.src(`./src/js/${platform}/app.js`)
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(concat('app.js'))
-    ;
-
-    if (env === 'prod') {
-        resource = resource.pipe(minify({
-            noSource: true,
-            ext: {
-                min: '.js'
-            }
-        }))
-    }
-
-    resource.pipe(gulp.dest('./www/js/'));
+    resource.pipe(gulp.dest('./www/js'));
 });
 
 gulp.task('template', function () {
@@ -92,11 +80,11 @@ gulp.task('template', function () {
     ;
 });
 
-let tasks = ['js-lib', 'js-app', 'less', 'template'];
+let tasks = ['js', 'less', 'template'];
 
 if (env === 'dev') {
     gulp.task('watch', function() {
-        gulp.watch(['./src/js/*.js', './src/js/common/**/*.js', `./src/js/${platform}/app.js`], ['js-lib', 'js-app']);
+        gulp.watch(['./src/js/*.js', './src/js/common/**/*.js', `./src/js/${platform}/app.js`], ['js']);
         // gulp.watch(['./css/**/*.less'], ['less']);
         gulp.watch(['./src/templates/*'], ['template']);
     });

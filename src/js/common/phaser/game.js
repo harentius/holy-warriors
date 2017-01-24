@@ -1,3 +1,5 @@
+import load from './base/load';
+
 let cursors,
     jumpButton,
     player,
@@ -9,16 +11,7 @@ let cursors,
 ;
 
 let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'holy-warriors', {
-    preload: () => {
-        game.load.spritesheet('player', 'assets/img/character.png');
-        game.load.image('sprite', 'assets/img/sprite.png');
-        game.load.image('tree', 'assets/img/tree.png');
-        game.load.spritesheet('coffee', 'assets/img/coffee.png');
-        game.load.spritesheet('bug', 'assets/img/bug.png');
-        game.load.spritesheet('crutch', 'assets/img/crutch.png');
-        game.load.spritesheet('cactus', 'assets/img/cactus.png');
-        game.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
-    },
+    preload: () => load(game),
     create: () => {
         game.stage.backgroundColor = '#b5e0ff';
 
@@ -76,12 +69,13 @@ let game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '
             jumpTimer = game.time.now + 750;
         }
     },
-    render: () => {
-        // game.debug.spriteInfo(player, 32, 32);
-    }, }, '', null, false, false
+    render: () => {},
+}, '', null, false, false
 );
 
 function collectCoffee(player, coffee) {
     coffee.kill();
     console.log('collect')
 }
+
+export default game;

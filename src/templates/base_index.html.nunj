@@ -5,11 +5,8 @@
         <meta charset="UTF-8">
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-        <style>
-            body {
-                margin: 0;
-            }
-        </style>
+
+        <link href="css/style.css?{{ assetVersion }}" media="all" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -19,7 +16,6 @@
         <script src="bower_components/phaser/build/phaser.min.js?{{ assetVersion }}"></script>
         {% block javascripts_vendor %}{% endblock %}
 
-        <script src="js/lib.js?{{ assetVersion }}"></script>
-        <script src="js/app.js?{{ assetVersion }}"></script>
+        <script src="js/bundle.js?{{ assetVersion }}"></script>
     </body>
 </html>
