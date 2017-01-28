@@ -1,12 +1,12 @@
-export default (game) => {
-    game.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
+export default (phaserGame) => {
+    phaserGame.load.tilemap('tilemap', 'assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
 
-    game.load.spritesheet('player', 'assets/img/character.png');
-    game.load.spritesheet('coffee', 'assets/img/coffee.png');
-    game.load.spritesheet('bug', 'assets/img/bug.png');
-    game.load.spritesheet('crutch', 'assets/img/crutch.png');
-    game.load.spritesheet('cactus', 'assets/img/cactus.png');
+    phaserGame.load.spritesheet('player', 'assets/img/character.png');
+    phaserGame.load.spritesheet('coffee', 'assets/img/coffee.png');
+    phaserGame.load.spritesheet('bug', 'assets/img/bug.png');
+    phaserGame.load.spritesheet('crutch', 'assets/img/crutch.png');
+    phaserGame.load.spritesheet('cactus', 'assets/img/cactus.png');
 
-    game.load.image('sprite', 'assets/img/sprite.png');
-    game.load.image('tree', 'assets/img/tree.png');
+    phaserGame.load.image('sprite', 'assets/img/sprite.png');
+    phaserGame.load.image('tree', 'assets/img/tree.png');
 }
