@@ -9,7 +9,7 @@ let config = {
 let phaserGameData;
 
 let phaserGame = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'holy-warriors', {
-    preload: () => load(phaserGame),
+    preload: () => load(phaserGame, window.hw.assetVersion),
     create: () => phaserGameData = create(phaserGame, config),
     update: () => update(phaserGame, phaserGameData),
     render: () => {},

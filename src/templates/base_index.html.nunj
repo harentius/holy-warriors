@@ -15,7 +15,10 @@
 
         <script src="bower_components/phaser/build/phaser.min.js?{{ assetVersion }}"></script>
         {% block javascripts_vendor %}{% endblock %}
-
+        <script>
+            window.hw = window.hw || {};
+            window.hw.assetVersion = '{{ assetVersion }}';
+        </script>
         <script src="js/bundle.js?{{ assetVersion }}"></script>
     </body>
 </html>

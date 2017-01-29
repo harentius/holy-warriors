@@ -85,7 +85,6 @@ let tasks = ['js', 'less', 'template'];
 if (env === 'dev') {
     gulp.task('watch', function() {
         gulp.watch(['./src/js/*.js', './src/js/common/**/*.js', `./src/js/${platform}/app.js`], ['js']);
-        // gulp.watch(['./css/**/*.less'], ['less']);
         gulp.watch(['./src/templates/*'], ['template']);
     });
 
