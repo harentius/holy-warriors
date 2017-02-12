@@ -4,7 +4,7 @@ export default (phaserGame, phaserGameData) => {
     phaserGame.physics.arcade.collide(phaserGameData.player, phaserGameData.layers.world);
     phaserGame.physics.arcade.overlap(phaserGameData.player, phaserGameData.groups.coffee, collectCoffee, null, this);
     phaserGameData.player.body.velocity.x = 0;
-    phaserGameData.groups.bug.x -= 1;
+    // phaserGameData.groups.bug.x -= 1;
 
     if (phaserGameData.keys.cursors.left.isDown) {
         phaserGameData.player.body.velocity.x = -150;

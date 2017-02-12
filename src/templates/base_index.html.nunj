@@ -18,6 +18,7 @@
         <script>
             window.hw = window.hw || {};
             window.hw.assetVersion = '{{ assetVersion }}';
+            window.hw.debug = {{ debug }};
         </script>
         <script src="js/bundle.js?{{ assetVersion }}"></script>
     </body>

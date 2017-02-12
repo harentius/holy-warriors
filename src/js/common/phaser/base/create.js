@@ -22,7 +22,7 @@ export default (phaserGame, config) => {
     map.addTilesetImage('sprite');
     map.addTilesetImage('tree');
     map.addTilesetImage('cactus');
-    map.setCollisionBetween(1, 8);
+    map.setCollisionBetween(1, 16);
 
     let worldLayer = map.createLayer('World');
     worldLayer.setScale(config.scale, config.scale);
@@ -34,20 +34,31 @@ export default (phaserGame, config) => {
     let coffee = phaserGame.add.group();
     coffee.enableBody = true;
     coffee.scale.setTo(config.scale, config.scale);
-    map.createFromObjects('Objects', 9, 'coffee', 0, true, false, coffee);
+    map.createFromObjects('Objects', 17, 'coffee', 0, true, false, coffee);
     phaserGameData.groups.coffee = coffee;
 
     let crutch = phaserGame.add.group();
     crutch.enableBody = true;
     crutch.scale.setTo(config.scale, config.scale);
-    map.createFromObjects('Objects', 10, 'crutch', 0, true, false, crutch);
+    map.createFromObjects('Objects', 18, 'crutch', 0, true, false, crutch);
     phaserGameData.groups.crutch = crutch;
+
+    let tape = phaserGame.add.group();
+    tape.enableBody = true;
+    tape.scale.setTo(config.scale, config.scale);
+    map.createFromObjects('Objects', 44, 'tape', 0, true, false, tape);
+    phaserGameData.groups.tape = tape;
 
     let bug = phaserGame.add.group();
     bug.enableBody = true;
-    bug.scale.setTo(3, 3);
-    map.createFromObjects('Objects', 35, 'bug', 0, true, false, bug);
+    bug.scale.setTo(config.scale, config.scale);
+    map.createFromObjects('Objects', 43, 'bug', 0, true, false, bug);
     phaserGameData.groups.bug = bug;
+
+    let abyss = phaserGame.add.group();
+    abyss.scale.setTo(config.scale, config.scale);
+    map.createFromObjects('Objects', 45, 'abyss', 0, true, false, abyss);
+    phaserGameData.groups.abyss = abyss;
 
     let player = phaserGame.add.sprite(100, 0, 'player');
     player.scale.setTo(3, 3);
@@ -59,6 +70,10 @@ export default (phaserGame, config) => {
 
     phaserGameData.keys.cursors = phaserGame.input.keyboard.createCursorKeys();
     phaserGameData.keys.jump = phaserGame.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+    if (config.debug) {
+        phaserGame.time.advancedTiming = true;
+    }
 
     return phaserGameData;
 }

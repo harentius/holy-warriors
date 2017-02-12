@@ -74,6 +74,7 @@ gulp.task('template', function () {
         .pipe(nunjucks.compile({
             assetVersion: Math.random().toString(36).substr(2, 15),
             env: env,
+            debug: env === 'dev',
         }))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('./www/'))
