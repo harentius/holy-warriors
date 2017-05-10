@@ -4,7 +4,7 @@ export default (phaserGame, config) => {
         groups: {
             coffee: null,
             crutch: null,
-            bug: null,
+            bugs: null,
         },
         keys: {
             cursors: null,
@@ -14,6 +14,8 @@ export default (phaserGame, config) => {
             world: null,
         },
     };
+    // phaserGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    // Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
 
     let map = phaserGame.add.tilemap('tilemap');
 
@@ -25,43 +27,37 @@ export default (phaserGame, config) => {
     map.setCollisionBetween(1, 16);
 
     let worldLayer = map.createLayer('World');
-    worldLayer.setScale(config.scale, config.scale);
     worldLayer.resizeWorld();
     phaserGameData.layers.world = worldLayer;
 
-    phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
+    // phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
 
     let coffee = phaserGame.add.group();
     coffee.enableBody = true;
-    coffee.scale.setTo(config.scale, config.scale);
     map.createFromObjects('Objects', 17, 'coffee', 0, true, false, coffee);
     phaserGameData.groups.coffee = coffee;
 
     let crutch = phaserGame.add.group();
     crutch.enableBody = true;
-    crutch.scale.setTo(config.scale, config.scale);
     map.createFromObjects('Objects', 18, 'crutch', 0, true, false, crutch);
     phaserGameData.groups.crutch = crutch;
 
     let tape = phaserGame.add.group();
     tape.enableBody = true;
-    tape.scale.setTo(config.scale, config.scale);
     map.createFromObjects('Objects', 44, 'tape', 0, true, false, tape);
     phaserGameData.groups.tape = tape;
 
-    let bug = phaserGame.add.group();
-    bug.enableBody = true;
-    bug.scale.setTo(config.scale, config.scale);
-    map.createFromObjects('Objects', 43, 'bug', 0, true, false, bug);
-    phaserGameData.groups.bug = bug;
+    let bugs = phaserGame.add.group();
+    bugs.enableBody = true;
+    map.createFromObjects('Objects', 59, 'bug', 0, true, false, bugs);
+    phaserGameData.groups.bugs = bugs;
+    phaserGame.physics.enable(bugs, Phaser.Physics.ARCADE);
 
-    let abyss = phaserGame.add.group();
-    abyss.scale.setTo(config.scale, config.scale);
-    map.createFromObjects('Objects', 45, 'abyss', 0, true, false, abyss);
-    phaserGameData.groups.abyss = abyss;
+    for (let bug of bugs.children) {
+        bug.body.velocity.x = -50;
+    }
 
     let player = phaserGame.add.sprite(100, 0, 'player');
-    player.scale.setTo(3, 3);
     phaserGame.physics.arcade.enable(player);
     player.body.gravity.y = 900;
     player.body.collideWorldBounds = true;
@@ -74,6 +70,8 @@ export default (phaserGame, config) => {
     if (config.debug) {
         phaserGame.time.advancedTiming = true;
     }
+
+
 
     return phaserGameData;
 }

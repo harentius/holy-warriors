@@ -9,7 +9,6 @@ const resources = {
         bug: 'assets/img/bug.png',
         crutch: 'assets/img/crutch.png',
         cactus: 'assets/img/cactus.png',
-        abyss: 'assets/img/abyss.png',
     },
     image: {
         sprite: 'assets/img/sprite.png',
