@@ -1,22 +1,4 @@
-const resources = {
-    tilemap: {
-        tilemap: ['assets/tilemaps/tilemap.json', null, Phaser.Tilemap.TILED_JSON],
-    },
-    spritesheet: {
-        player: 'assets/img/character.png',
-        coffee: 'assets/img/coffee.png',
-        tape: 'assets/img/tape.png',
-        bug: 'assets/img/bug.png',
-        crutch: 'assets/img/crutch.png',
-        cactus: 'assets/img/cactus.png',
-    },
-    image: {
-        sprite: 'assets/img/sprite.png',
-        tree: 'assets/img/tree.png',
-    }
-};
-
-export default (phaserGame, version) => {
+export default (resources, phaserGame, version) => {
     let processPath = (path, version) => {
         return `${path}?v=${version}`;
     };
