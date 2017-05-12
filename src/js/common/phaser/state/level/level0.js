@@ -16,12 +16,12 @@ export default {
         phaserGame.add.text(80, 80, 'Loading...', {font: '50px Arial', fill: '#ffffff'});
         load({
             'image': {
-                'frame-1-background': 'assets/img/level1/frame-1-background.png',
-                'door': 'assets/img/level1/door.png',
+                'frame-1-background': 'img/level1/frame-1-background.png',
+                'door': 'img/level1/door.png',
             },
             'spritesheet': {
-                'developer-behind-desk': ['assets/img/level1/developer-behind-desk.png', 40, 29, 8],
-                'stranger': ['assets/img/level1/stranger.png', 16, 35, 8],
+                'developer-behind-desk': ['img/level1/developer-behind-desk.png', 40, 29, 8],
+                'stranger': ['img/level1/stranger.png', 16, 35, 8],
             }
         }, phaserGame, window.hw.assetVersion);
     },

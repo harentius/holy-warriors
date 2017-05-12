@@ -1,6 +1,6 @@
 #!/bin/sh
 
-base_export_path="www/assets/img/"
+base_export_path="www/img/"
 
 echo "Exporting common sprites"
 file="src/sprites/common.ase"
