@@ -13,4 +13,4 @@ file="src/sprites/level1/level1.ase"
 aseprite  --batch --trim --layer="Developer behind the desk" ${file} --sheet ${base_export_path}level1/developer-behind-desk.png
 aseprite  --batch --trim --layer="Stranger" ${file} --sheet ${base_export_path}level1/stranger.png
 aseprite  --batch --trim --oneframe --layer="Door" ${file} --sheet ${base_export_path}level1/door.png
-aseprite  --batch --trim --layer="Office" ${file} --sheet ${base_export_path}level1/office.png
+aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet ${base_export_path}level1/frame-1-background.png
