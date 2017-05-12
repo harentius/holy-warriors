@@ -1,5 +1,6 @@
-/www/*
-!/www/assets/
+/www/bower_components/
+/www/css/
+/www/js/
 /node_modules/
 build-config.json
 /platforms

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="19" tilewidth="16" tileheight="16" nextobjectid="107">
+ <tileset firstgid="1" name="sprite" tilewidth="16" tileheight="16" tilecount="32" columns="8">
+  <image source="../img/sprite.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="33" name="coffee" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/coffee.png" width="16" height="16"/>
+ </tileset>
+ <tileset firstgid="34" name="crutch" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/crutch.png" width="16" height="16"/>
+ </tileset>
+ <tileset firstgid="35" name="tree" tilewidth="16" tileheight="16" tilecount="20" columns="4">
+  <image source="../img/tree.png" width="64" height="80"/>
+ </tileset>
+ <tileset firstgid="55" name="cactus" tilewidth="16" tileheight="16" tilecount="4" columns="2">
+  <image source="../img/cactus.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="59" name="bug" tilewidth="32" tileheight="16" tilecount="1" columns="1">
+  <image source="../img/bug.png" width="32" height="16"/>
+ </tileset>
+ <tileset firstgid="60" name="tape" tilewidth="11" tileheight="9" tilecount="1" columns="1">
+  <image source="../img/tape.png" width="11" height="9"/>
+ </tileset>
+ <layer name="World" width="40" height="19">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,35,36,37,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,56,0,11,3,4,12,35,36,37,38,0,0,
+0,0,0,0,0,0,39,40,41,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,58,0,0,0,0,0,39,40,41,42,0,0,
+0,0,0,0,0,0,43,44,45,46,0,0,0,0,0,0,0,0,0,0,0,11,3,4,3,4,3,3,4,12,0,0,0,0,43,44,45,46,0,0,
+0,0,0,0,0,0,47,48,49,50,0,0,0,0,0,55,56,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,47,48,49,50,0,0,
+0,0,0,0,0,0,51,52,53,54,0,0,0,0,0,57,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,54,0,0,
+1,2,1,2,1,2,1,2,5,6,17,18,17,18,7,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+9,10,9,10,9,10,9,10,13,14,25,26,25,26,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10,9,10
+</data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="3" gid="33" x="224.5" y="271.5" width="16" height="16"/>
+  <object id="26" gid="33" x="306.25" y="271.25" width="16" height="16"/>
+  <object id="27" gid="33" x="324" y="271.25" width="16" height="16"/>
+  <object id="28" gid="33" x="529.25" y="271" width="16" height="16"/>
+  <object id="29" gid="33" x="546.5" y="270.75" width="16" height="16"/>
+  <object id="31" gid="33" x="496.333" y="191" width="16" height="16"/>
+  <object id="36" gid="34" x="352.667" y="223" width="16" height="16"/>
+  <object id="44" gid="34" x="376.333" y="222.667" width="16" height="16"/>
+  <object id="47" gid="34" x="514" y="190.333" width="16" height="16"/>
+  <object id="74" gid="59" x="269" y="272.333" width="32" height="16"/>
+  <object id="87" gid="60" x="303.333" y="258.333" width="11" height="9"/>
+  <object id="89" gid="60" x="289.333" y="258.333" width="11" height="9"/>
+ </objectgroup>
+</map>
