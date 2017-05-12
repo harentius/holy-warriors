@@ -1,2 +1,5 @@
-Boo City Font: under OFL (Open Font License)
+Fonts:
+Boo City: OFL (Open Font License)
 
+Sounds:
+"Obsession" http://www.freesfx.co.uk/

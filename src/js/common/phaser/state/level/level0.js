@@ -22,10 +22,19 @@ export default {
             'spritesheet': {
                 'developer-behind-desk': ['img/level1/developer-behind-desk.png', 40, 29, 8],
                 'stranger': ['img/level1/stranger.png', 16, 35, 8],
+            },
+            'audio': {
+                'typing': 'audio/obsession.mp3',
             }
         }, phaserGame, window.hw.assetVersion);
     },
     create: () => {
+        let typing = phaserGame.add.audio('typing');
+        phaserGame.sound.setDecodedCallback([ typing ], () => {
+            typing.play();
+            typing.loopFull(1.0);
+        }, phaserGame);
+
         phaserGame.camera.flash('#000000', 2500);
         phaserGame.add.sprite(0, 0, 'frame-1-background');
         phaserGame.add.sprite(20, config.floorPosition - 49, 'door');
