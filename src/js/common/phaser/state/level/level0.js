@@ -13,7 +13,7 @@ let strangerEnters = () => {
 
 export default {
     preload: () => {
-        phaserGame.add.text(80, 80, 'Loading...', {font: '50px Arial', fill: '#ffffff'});
+        phaserGame.add.text(80, 80, 'Loading...', {font: '50px BooCity', fill: '#ffffff'});
         load({
             'image': {
                 'frame-1-background': 'img/level1/frame-1-background.png',

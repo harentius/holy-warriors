@@ -4,7 +4,7 @@ import game from '../../data/game';
 export default {
     create: () => {
         // TODO
-        phaserGame.add.text(80, 80, 'Boot', {font: '50px Arial', fill: '#ffffff'});
+        phaserGame.add.text(80, 80, 'Boot', {font: '50px BooCity', fill: '#ffffff'});
         Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
         phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
         phaserGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;

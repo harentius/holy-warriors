@@ -10,6 +10,8 @@
     </head>
 
     <body>
+        <div class="load">.</div>
+
         {% block before_body %}{% endblock %}
         {% block body %}{% endblock %}
 
