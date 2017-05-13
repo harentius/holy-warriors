@@ -16,12 +16,12 @@ export default {
         phaserGame.add.text(80, 80, 'Loading...', {font: '50px BooCity', fill: '#ffffff'});
         load({
             'image': {
-                'frame-1-background': 'img/level1/frame-1-background.png',
-                'door': 'img/level1/door.png',
+                'frame-1-background': 'img/level0/frame-1-background.png',
+                'door': 'img/level0/door.png',
             },
             'spritesheet': {
-                'developer-behind-desk': ['img/level1/developer-behind-desk.png', 40, 29, 8],
-                'stranger': ['img/level1/stranger.png', 16, 35, 8],
+                'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],
+                'stranger': ['img/level0/stranger.png', 16, 35, 8],
             },
             'audio': {
                 'typing': 'audio/obsession.mp3',

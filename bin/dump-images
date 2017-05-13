@@ -7,10 +7,10 @@ file="src/sprites/common.ase"
 aseprite  --batch --trim --layer="Cup" ${file} --sheet ${base_export_path}cup.png
 aseprite  --batch --trim --layer="Developer walk" ${file} --sheet ${base_export_path}developer-walk.png
 
-echo "Exporting level 1 sprites"
-file="src/sprites/level1/level1.ase"
+echo "Exporting level 0 sprites"
+file="src/sprites/level0/level0.ase"
 
-aseprite  --batch --trim --layer="Developer behind the desk" ${file} --sheet ${base_export_path}level1/developer-behind-desk.png
-aseprite  --batch --trim --layer="Stranger" ${file} --sheet ${base_export_path}level1/stranger.png
-aseprite  --batch --trim --oneframe --layer="Door" ${file} --sheet ${base_export_path}level1/door.png
-aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet ${base_export_path}level1/frame-1-background.png
+aseprite  --batch --trim --layer="Developer behind the desk" ${file} --sheet ${base_export_path}level0/developer-behind-desk.png
+aseprite  --batch --trim --layer="Stranger" ${file} --sheet ${base_export_path}level0/stranger.png
+aseprite  --batch --trim --oneframe --layer="Door" ${file} --sheet ${base_export_path}level0/door.png
+aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet ${base_export_path}level0/frame-1-background.png
