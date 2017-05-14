@@ -33,7 +33,13 @@ export default {
 
         phaserGame.add.sprite(0, 0, 'frame-1-background');
         phaserGame.add.sprite(20, config.floorPosition - 49, 'door');
-        phaserGame.add.sprite(130, config.ceilingPosition, 'light-source');
+
+        // Light source sprite and animation
+        let lightSource = phaserGame.add.sprite(130, config.ceilingPosition + 1, 'light-source');
+        lightSource.animations.add('lightSource');
+        phaserGame.time.events.repeat(Phaser.Timer.SECOND * 2, 100500, () => {
+            lightSource.animations.play('lightSource', 8);
+        }, phaserGame);
 
         let developerBehindDesk = phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk');
         developerBehindDesk.animations.add('typing');
