@@ -4,5 +4,6 @@ let config = {
 };
 
 config.floorPosition = config.height * 3 / 4;
+config.ceilingPosition = 63;
 
 export default config
