@@ -8,6 +8,7 @@ export default {
         load({
             'image': {
                 'frame-1-background': 'img/level0/frame-1-background.png',
+                'blackout': 'img/level0/blackout.png',
                 'door': 'img/level0/door.png',
             },
             'spritesheet': {
@@ -44,6 +45,8 @@ export default {
         let developerBehindDesk = phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk');
         developerBehindDesk.animations.add('typing');
         developerBehindDesk.animations.play('typing', 8, true);
+
+        phaserGame.add.sprite(0, 0, 'blackout');
 
         // Stranger appear
         phaserGame.time.events.add(Phaser.Timer.SECOND * 4, () => {
