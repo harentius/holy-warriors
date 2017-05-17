@@ -1,15 +1,16 @@
 #!/bin/sh
 
 base_export_path="www/img/"
+base_sprite_path="src/sprites/"
 
 echo "Exporting common sprites"
-file="src/sprites/common.ase"
+aseprite  --batch --layer="Developer Crutch Attack" ${base_sprite_path}developer-crutch-attack.ase --sheet ${base_export_path}developer-crutch-attack.png
+file=${base_sprite_path}common.ase
 aseprite  --batch --trim --layer="Cup" ${file} --sheet ${base_export_path}cup.png
 aseprite  --batch --trim --layer="Developer walk" ${file} --sheet ${base_export_path}developer-walk.png
 
 echo "Exporting level 0 sprites"
-file="src/sprites/level0/level0.ase"
-
+file=${base_sprite_path}"/level0/level0.ase"
 aseprite  --batch --trim --layer="Developer behind the desk" ${file} --sheet ${base_export_path}level0/developer-behind-desk.png
 aseprite  --batch --trim --layer="Stranger" ${file} --sheet ${base_export_path}level0/stranger.png
 aseprite  --batch --trim --oneframe --layer="Door" ${file} --sheet ${base_export_path}level0/door.png
