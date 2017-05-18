@@ -3,3 +3,4 @@ Boo City: OFL (Open Font License)
 
 Sounds:
 "Obsession" http://www.freesfx.co.uk/
+"Door Open": https://freesound.org/people/gabisaraceni/sounds/96964/

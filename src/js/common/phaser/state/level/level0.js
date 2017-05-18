@@ -18,6 +18,7 @@ export default {
             },
             'audio': {
                 'typing': 'audio/obsession.mp3',
+                'door-open': 'audio/door-open.wav',
             }
         }, phaserGame, window.hw.assetVersion);
     },
@@ -28,9 +29,11 @@ export default {
         // Init audio track
         let audioTyping = phaserGame.add.audio('typing');
         phaserGame.sound.setDecodedCallback([audioTyping], () => {
-            audioTyping.play();
-            audioTyping.loopFull(1.0);
+            audioTyping.play(null, null, 0.3);
+            audioTyping.loopFull(0.3);
         }, phaserGame);
+
+        let audioDoorOpen = phaserGame.add.audio('door-open');
 
         phaserGame.add.sprite(0, 0, 'frame-1-background');
 
@@ -53,6 +56,7 @@ export default {
         // Stranger appear
         phaserGame.time.events.add(Phaser.Timer.SECOND * 4, () => {
             door.animations.play('door-open');
+            audioDoorOpen.play(null, null, 1.0);
             let stranger = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger');
             stranger.animations.add('smoking');
             // Smoke
