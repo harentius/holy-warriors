@@ -8,6 +8,7 @@ export default {
         load({
             'image': {
                 'frame-1-background': 'img/level0/frame-1-background.png',
+                'developer-behind-desk-surprised': 'img/level0/developer-behind-desk-surprised.png',
                 'blackout': 'img/level0/blackout.png',
             },
             'spritesheet': {
@@ -59,10 +60,17 @@ export default {
             audioDoorOpen.play(null, null, 1.0);
             let stranger = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger');
             stranger.animations.add('smoking');
+
             // Smoke
             phaserGame.time.events.repeat(Phaser.Timer.SECOND * 4, 100500, () => {
                 stranger.animations.play('smoking', 8);
             }, phaserGame);
+
+            // Developer surprised
+            phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
+                developerBehindDesk.destroy();
+                phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk-surprised');
+            });
         }, phaserGame);
     }
 }

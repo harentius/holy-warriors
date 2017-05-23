@@ -12,6 +12,7 @@ aseprite  --batch --trim --layer="Developer walk" ${file} --sheet ${base_export_
 echo "Exporting level 0 sprites"
 file=${base_sprite_path}"/level0/level0.ase"
 aseprite  --batch --trim --layer="Developer behind the desk" ${file} --sheet ${base_export_path}level0/developer-behind-desk.png
+aseprite  --batch --trim --oneframe --layer="Developer behind the desk surprised" ${file} --sheet ${base_export_path}level0/developer-behind-desk-surprised.png
 aseprite  --batch --trim --layer="Stranger" ${file} --sheet ${base_export_path}level0/stranger.png
 aseprite  --batch --trim --layer="Door" ${file} --sheet ${base_export_path}level0/door.png
 aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet ${base_export_path}level0/frame-1-background.png
