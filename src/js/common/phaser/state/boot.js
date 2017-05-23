@@ -1,5 +1,4 @@
 import phaserGame from '../game';
-import game from '../../data/game';
 
 export default {
     create: () => {
@@ -8,6 +7,6 @@ export default {
         Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
         phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
         phaserGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        phaserGame.state.start(`level${game.level}`);
+        phaserGame.state.start('menu');
     }
 }

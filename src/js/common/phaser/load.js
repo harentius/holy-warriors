@@ -4,6 +4,10 @@ export default (resources, phaserGame, version) => {
     };
 
     for (const type in resources) {
+        if (!resources.hasOwnProperty(type)) {
+            continue;
+        }
+
         for (const key in resources[type]) {
             if (!resources[type].hasOwnProperty(key)) {
                 continue;
