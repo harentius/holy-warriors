@@ -18,3 +18,4 @@ aseprite  --batch --trim --layer="Door" ${file} --sheet ${base_export_path}level
 aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet ${base_export_path}level0/frame-1-background.png
 aseprite  --batch --trim --oneframe --layer="Blackout" ${file} --sheet ${base_export_path}level0/blackout.png
 aseprite  --batch --trim --layer="Light source" ${file} --sheet ${base_export_path}level0/light-source.png
+aseprite  --batch --layer="Stranger walk" ${base_sprite_path}"/level0/stranger-walk.ase" --sheet ${base_export_path}level0/stranger-walk.png

@@ -14,6 +14,7 @@ export default {
             'spritesheet': {
                 'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],
                 'stranger': ['img/level0/stranger.png', 16, 35, 8],
+                'stranger-walk': ['img/level0/stranger-walk.png', 17, 35, 5],
                 'light-source': ['img/level0/light-source.png', 11, 23, 8],
                 'door': ['img/level0/door.png', 32, 49, 4],
             },
@@ -62,7 +63,7 @@ export default {
             stranger.animations.add('smoking');
 
             // Smoke
-            phaserGame.time.events.repeat(Phaser.Timer.SECOND * 4, 100500, () => {
+            phaserGame.time.events.repeat(Phaser.Timer.SECOND * 3, 100500, () => {
                 stranger.animations.play('smoking', 8);
             }, phaserGame);
 
@@ -70,6 +71,22 @@ export default {
             phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
                 developerBehindDesk.destroy();
                 phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk-surprised');
+            });
+
+            // Stranger walk
+            phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
+                let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger-walk');
+                stranger.visible = false;
+                strangerWalk.animations.add('stranger-walk');
+                strangerWalk.animations.play('stranger-walk', 5, true);
+                phaserGame.time.events.repeat(Phaser.Timer.SECOND /10, 30, () => {
+                    strangerWalk.x += 2;
+                });
+                phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
+                    stranger.x = 29 + 10 * 6;
+                    strangerWalk.destroy();
+                    stranger.visible = true;
+                });
             });
         }, phaserGame);
     }
