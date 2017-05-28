@@ -14,7 +14,7 @@ export default {
             'spritesheet': {
                 'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],
                 'stranger': ['img/level0/stranger.png', 16, 35, 8],
-                'stranger-walk': ['img/level0/stranger-walk.png', 17, 35, 5],
+                'stranger-walk': ['img/level0/stranger-walk.png', 23, 40, 6],
                 'light-source': ['img/level0/light-source.png', 11, 23, 8],
                 'door': ['img/level0/door.png', 32, 49, 4],
             },
@@ -74,15 +74,15 @@ export default {
             });
 
             // Stranger walk
-            phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
-                let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger-walk');
+            phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
+                let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
                 stranger.visible = false;
                 strangerWalk.animations.add('stranger-walk');
-                strangerWalk.animations.play('stranger-walk', 5, true);
-                phaserGame.time.events.repeat(Phaser.Timer.SECOND /10, 30, () => {
-                    strangerWalk.x += 2;
+                strangerWalk.animations.play('stranger-walk', 6, true);
+                phaserGame.time.events.repeat(Phaser.Timer.SECOND / 30, 60, () => {
+                    strangerWalk.x += 1;
                 });
-                phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
+                phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
                     stranger.x = 29 + 10 * 6;
                     strangerWalk.destroy();
                     stranger.visible = true;
