@@ -8,6 +8,8 @@ aseprite  --batch --layer="Developer Crutch Attack" ${base_sprite_path}developer
 file=${base_sprite_path}common.ase
 aseprite  --batch --trim --layer="Cup" ${file} --sheet ${base_export_path}cup.png
 aseprite  --batch --trim --layer="Developer walk" ${file} --sheet ${base_export_path}developer-walk.png
+#TODO
+aseprite  --batch --trim --oneframe --layer="Text Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}level0/text-bubble.png
 
 echo "Exporting level 0 sprites"
 file=${base_sprite_path}"/level0/level0.ase"

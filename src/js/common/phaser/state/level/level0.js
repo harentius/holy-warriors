@@ -1,6 +1,7 @@
 import phaserGame from '../../game';
 import load from '../../load';
 import config from '../../../config';
+import renderText from '../../render-text';
 
 export default {
     preload: () => {
@@ -86,6 +87,7 @@ export default {
                     stranger.x = 29 + 10 * 6;
                     strangerWalk.destroy();
                     stranger.visible = true;
+                    renderText(["HELLO"])
                 });
             });
         }, phaserGame);
