@@ -2,8 +2,8 @@ import renderText from '../phaser/render-text';
 
 export default class {
     constructor() {
-        this.characterSprite = null
-        this.avatar = null
+        this.characterSprite = null;
+        this.avatar = null;
     }
 
     say(text) {
