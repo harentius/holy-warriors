@@ -1,12 +1,12 @@
 import phaserGame from './game';
 
-class TextRenderer
-{
+class TextRenderer {
     constructor (phaserGame) {
         this.textContent = null;
         this.phaserGame = phaserGame;
-        this.textBubble = phaserGame.add.sprite(2, 145, 'text-bubble');
-        this.textElement = phaserGame.add.bitmapText(5, 145, 'font-BooCity', '', 10);
+        this.charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
+        this.textBubble = phaserGame.add.sprite(39, 145, 'text-bubble');
+        this.textElement = phaserGame.add.bitmapText(43, 145, 'font-BooCity', '', 10);
         this.finishCallback = () => {};
         this.line = [];
         this.wordIndex = 0;
@@ -49,6 +49,7 @@ class TextRenderer
     _scheduleDestroy(finishDelay, finishCallback = () => {}) {
         this.phaserGame.time.events.add(finishDelay, () => {
             this.textBubble.destroy();
+            this.charBubble.destroy();
             this.textElement.destroy();
             finishCallback();
         });

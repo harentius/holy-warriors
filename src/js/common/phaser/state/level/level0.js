@@ -1,7 +1,7 @@
 import phaserGame from '../../game';
 import load from '../../load';
 import config from '../../../config';
-import renderText from '../../render-text';
+import Stranger from '../../../character/stranger';
 
 export default {
     preload: () => {
@@ -39,7 +39,6 @@ export default {
         let audioDoorOpen = phaserGame.add.audio('door-open');
 
         phaserGame.add.sprite(0, 0, 'frame-1-background');
-
         let door = phaserGame.add.sprite(20, config.floorPosition - 49, 'door');
         door.animations.add('door-open');
 
@@ -60,13 +59,8 @@ export default {
         phaserGame.time.events.add(Phaser.Timer.SECOND * 4, () => {
             door.animations.play('door-open');
             audioDoorOpen.play(null, null, 1.0);
-            let stranger = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger');
-            stranger.animations.add('smoking');
-
-            // Smoke
-            phaserGame.time.events.repeat(Phaser.Timer.SECOND * 3, 100500, () => {
-                stranger.animations.play('smoking', 8);
-            }, phaserGame);
+            let stranger = new Stranger();
+            stranger.spawn();
 
             // Developer surprised
             phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
@@ -74,21 +68,8 @@ export default {
                 phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk-surprised');
             });
 
-            // Stranger walk
-            phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
-                let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
-                stranger.visible = false;
-                strangerWalk.animations.add('stranger-walk');
-                strangerWalk.animations.play('stranger-walk', 6, true);
-                phaserGame.time.events.repeat(Phaser.Timer.SECOND / 30, 60, () => {
-                    strangerWalk.x += 1;
-                });
-                phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
-                    stranger.x = 29 + 10 * 6;
-                    strangerWalk.destroy();
-                    stranger.visible = true;
-                    renderText(["HELLO"])
-                });
+            stranger.walkToPlayer(() => {
+                stranger.say(["HELLO, JOE"]);
             });
         }, phaserGame);
     }

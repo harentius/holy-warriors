@@ -12,7 +12,8 @@ export default {
     preload: () => {
         load({
             'image': {
-                'text-bubble': 'img/level0/text-bubble.png',
+                'text-bubble': 'img/text-bubble.png',
+                'char-bubble': 'img/char-bubble.png',
             },
             'bitmapFont': {
                 'font-BooCity': ['fonts/BooCity/font.png', 'fonts/BooCity/font.fnt'],

@@ -9,7 +9,8 @@ file=${base_sprite_path}common.ase
 aseprite  --batch --trim --layer="Cup" ${file} --sheet ${base_export_path}cup.png
 aseprite  --batch --trim --layer="Developer walk" ${file} --sheet ${base_export_path}developer-walk.png
 #TODO
-aseprite  --batch --trim --oneframe --layer="Text Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}level0/text-bubble.png
+aseprite  --batch --trim --oneframe --layer="Text Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/text-bubble.png
+aseprite  --batch --trim --oneframe --layer="Char Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/char-bubble.png
 
 echo "Exporting level 0 sprites"
 file=${base_sprite_path}"/level0/level0.ase"
@@ -21,3 +22,4 @@ aseprite  --batch --trim --oneframe --layer="Frame 1 Background" ${file} --sheet
 aseprite  --batch --trim --oneframe --layer="Blackout" ${file} --sheet ${base_export_path}level0/blackout.png
 aseprite  --batch --trim --layer="Light source" ${file} --sheet ${base_export_path}level0/light-source.png
 aseprite  --batch --layer="Stranger walk" ${base_sprite_path}"/level0/stranger-walk.ase" --sheet ${base_export_path}level0/stranger-walk.png
+aseprite  --batch --trim --layer="Stranger Avatar" ${file} --sheet ${base_export_path}level0/stranger-avatar.png
