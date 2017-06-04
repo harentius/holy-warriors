@@ -1,4 +1,4 @@
-export default (resources, phaserGame, version) => {
+let load = (resources, phaserGame, version) => {
     let processPath = (path, version) => {
         return `${path}?v=${version}`;
     };
@@ -25,4 +25,6 @@ export default (resources, phaserGame, version) => {
             phaserGame.load[type](...args);
         }
     }
-}
+};
+
+export {load};

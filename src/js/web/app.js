@@ -1,1 +1,1 @@
-import game from '../common/phaser/game';
+import {phaserGame} from '../common/phaser/phaser-game';

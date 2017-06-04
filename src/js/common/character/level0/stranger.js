@@ -1,8 +1,8 @@
-import AbstractCharacter from './../abstract-character';
-import phaserGame from '../../phaser/game'
-import config from '../../config';
+import {AbstractCharacter} from './../abstract-character';
+import {phaserGame} from '../../phaser/phaser-game'
+import {config} from '../../config';
 
-export default class extends AbstractCharacter
+class Stranger extends AbstractCharacter
 {
     constructor() {
         super();
@@ -42,3 +42,5 @@ export default class extends AbstractCharacter
         });
     }
 }
+
+export {Stranger};

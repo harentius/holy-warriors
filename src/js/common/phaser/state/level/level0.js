@@ -1,9 +1,9 @@
-import phaserGame from '../../game';
-import load from '../../load';
-import config from '../../../config';
-import Stranger from '../../../character/level0/stranger';
+import {phaserGame} from '../../phaser-game';
+import {load} from '../../load';
+import {config} from '../../../config';
+import {Stranger} from '../../../character/level0/stranger';
 
-export default {
+let level0 = {
     preload: () => {
         phaserGame.add.text(80, 80, 'Loading...', {font: '50px BooCity', fill: '#ffffff'});
         load({
@@ -79,4 +79,6 @@ export default {
             });
         }, phaserGame);
     }
-}
+};
+
+export {level0};

@@ -1,5 +1,5 @@
-import phaserGame from '../game';
-import game from '../../data/game';
+import {phaserGame} from '../phaser-game';
+import {game} from '../../data/game';
 
 let MenuBuilder = {
     optionCount: 1,
@@ -29,7 +29,7 @@ let MenuBuilder = {
     },
 };
 
-export default {
+let menu = {
     create: () => {
         MenuBuilder.addEntry('New Game', () => {
             phaserGame.state.start('level0');
@@ -38,4 +38,6 @@ export default {
             phaserGame.state.start(`level${game.level}`);
         });
     }
-}
+};
+
+export {menu};

@@ -1,7 +1,7 @@
-import phaserGame from '../game';
-import load from '../load';
+import {phaserGame} from '../phaser-game';
+import {load} from '../load';
 
-export default {
+ let boot = {
     create: () => {
         phaserGame.add.text(80, 80, 'Boot', {font: '50px BooCity;line', fill: '#ffffff'});
         Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
@@ -20,4 +20,6 @@ export default {
             }
         }, phaserGame, window.hw.assetVersion);
     }
-}
+};
+
+ export {boot};

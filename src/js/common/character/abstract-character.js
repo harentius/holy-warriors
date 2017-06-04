@@ -1,6 +1,6 @@
-import renderText from '../phaser/render-text';
+import {renderText} from '../phaser/render-text';
 
-export default class {
+class AbstractCharacter {
     constructor() {
         this.characterSprite = null;
         this.avatarSpriteName = null;
@@ -14,3 +14,5 @@ export default class {
         throw Error('Not implemented');
     }
 }
+
+export {AbstractCharacter};

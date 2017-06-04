@@ -1,4 +1,4 @@
-import phaserGame from './game';
+import {phaserGame} from './phaser-game';
 
 class TextRenderer {
     constructor (phaserGame, avatarSpriteName = null) {
@@ -19,7 +19,7 @@ class TextRenderer {
         this.maxLinesCount = 3;
 
         if (avatarSpriteName) {
-            this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 147, avatarSpriteName);
+            this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 148, avatarSpriteName);
         }
     }
 
@@ -73,7 +73,9 @@ class TextRenderer {
     }
 }
 
-export default (text, avatarSpriteName = null, finishCallback = () => {}) => {
+let renderText = (text, avatarSpriteName = null, finishCallback = () => {}) => {
     let textRenderer = new TextRenderer(phaserGame, avatarSpriteName);
     textRenderer.render(text, finishCallback);
-}
+};
+
+export {renderText};
