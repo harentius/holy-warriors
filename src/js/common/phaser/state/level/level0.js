@@ -11,6 +11,7 @@ export default {
                 'frame-1-background': 'img/level0/frame-1-background.png',
                 'developer-behind-desk-surprised': 'img/level0/developer-behind-desk-surprised.png',
                 'blackout': 'img/level0/blackout.png',
+                'stranger-avatar': 'img/level0/stranger-avatar.png',
             },
             'spritesheet': {
                 'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],

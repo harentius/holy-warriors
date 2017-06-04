@@ -1,7 +1,7 @@
 import phaserGame from './game';
 
 class TextRenderer {
-    constructor (phaserGame) {
+    constructor (phaserGame, avatarSpriteName = null) {
         this.textContent = null;
         this.phaserGame = phaserGame;
         this.charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
@@ -11,10 +11,15 @@ class TextRenderer {
         this.line = [];
         this.wordIndex = 0;
         this.lineIndex = 0;
+        this.avatarSprite = null;
 
         this.wordDelay = 120;
         this.lineDelay = 400;
-        this.finishDelay = 2000;
+        this.finishDelay = 3000;
+
+        if (avatarSpriteName) {
+            this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 147, avatarSpriteName);
+        }
     }
 
     render (text, finishCallback = () => {}) {
@@ -51,12 +56,17 @@ class TextRenderer {
             this.textBubble.destroy();
             this.charBubble.destroy();
             this.textElement.destroy();
+
+            if (this.avatarSprite) {
+                this.avatarSprite.destroy();
+            }
+
             finishCallback();
         });
     }
 }
 
-export default (text, finishCallback = () => {}) => {
-    let textRenderer = new TextRenderer(phaserGame);
+export default (text, avatarSpriteName = null, finishCallback = () => {}) => {
+    let textRenderer = new TextRenderer(phaserGame, avatarSpriteName);
     textRenderer.render(text, finishCallback);
 }

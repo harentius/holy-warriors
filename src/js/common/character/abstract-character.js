@@ -3,11 +3,11 @@ import renderText from '../phaser/render-text';
 export default class {
     constructor() {
         this.characterSprite = null;
-        this.avatar = null;
+        this.avatarSpriteName = null;
     }
 
     say(text) {
-        renderText(text);
+        renderText(text, this.avatarSpriteName);
     }
 
     spawn() {

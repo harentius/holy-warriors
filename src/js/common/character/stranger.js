@@ -4,6 +4,11 @@ import config from '../config';
 
 export default class extends AbstractCharacter
 {
+    constructor() {
+        super();
+        this.avatarSpriteName = 'stranger-avatar';
+    }
+
     spawn() {
         this.characterSprite = phaserGame.add.sprite(29, config.floorPosition - 35, 'stranger');
         this.characterSprite.animations.add('smoking');
