@@ -70,7 +70,12 @@ export default {
             });
 
             stranger.walkToPlayer(() => {
-                stranger.say(["HELLO, JOE"]);
+                stranger.say([
+                    "HELLO, JOE",
+                    "I SEE ARE YOU TIRED",
+                    "BUT WHAT IF I'LL PROPOSE YOU A JOB, ",
+                    "THAT CAN CHANGE YOUR ENTIRE LIFE?"
+                ]);
             });
         }, phaserGame);
     }

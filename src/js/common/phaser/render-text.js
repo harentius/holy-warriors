@@ -16,6 +16,7 @@ class TextRenderer {
         this.wordDelay = 120;
         this.lineDelay = 400;
         this.finishDelay = 3000;
+        this.maxLinesCount = 3;
 
         if (avatarSpriteName) {
             this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 147, avatarSpriteName);
@@ -33,6 +34,12 @@ class TextRenderer {
             this._scheduleDestroy(this.finishDelay, this.finishCallback);
 
             return;
+        }
+
+        if ((this.lineIndex + 2) > this.maxLinesCount) {
+            let text = this.textElement.text.split('\n');
+            text.shift();
+            this.textElement.text = text.join('\n');
         }
 
         this.line = this.textContent[this.lineIndex].split(' ');
