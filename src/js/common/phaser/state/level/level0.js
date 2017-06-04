@@ -1,7 +1,7 @@
 import phaserGame from '../../game';
 import load from '../../load';
 import config from '../../../config';
-import Stranger from '../../../character/stranger';
+import Stranger from '../../../character/level0/stranger';
 
 export default {
     preload: () => {

@@ -1,6 +1,6 @@
-import AbstractCharacter from './abstract-character';
-import phaserGame from '../phaser/game'
-import config from '../config';
+import AbstractCharacter from './../abstract-character';
+import phaserGame from '../../phaser/game'
+import config from '../../config';
 
 export default class extends AbstractCharacter
 {
