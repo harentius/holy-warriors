@@ -4,8 +4,7 @@ class TextRenderer {
     constructor (phaserGame, avatarSpriteName = null) {
         this.textContent = null;
         this.phaserGame = phaserGame;
-        this.charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
-        this.textBubble = phaserGame.add.sprite(39, 145, 'text-bubble');
+
         this.textElement = phaserGame.add.bitmapText(43, 145, 'font-BooCity', '', 10);
         this.finishCallback = () => {};
         this.line = [];
@@ -60,8 +59,6 @@ class TextRenderer {
 
     _scheduleDestroy(finishDelay, finishCallback = () => {}) {
         this.phaserGame.time.events.add(finishDelay, () => {
-            this.textBubble.destroy();
-            this.charBubble.destroy();
             this.textElement.destroy();
 
             if (this.avatarSprite) {
@@ -73,9 +70,26 @@ class TextRenderer {
     }
 }
 
-let renderText = (text, avatarSpriteName = null, finishCallback = () => {}) => {
+let charBubble;
+let textBubble;
+
+let renderText = (text, avatarSpriteName = null, finishCallback = () => {}, destroyBubble = false) => {
+    if (!charBubble && !textBubble) {
+        charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
+        textBubble = phaserGame.add.sprite(39, 145, 'text-bubble');
+    }
+
     let textRenderer = new TextRenderer(phaserGame, avatarSpriteName);
-    textRenderer.render(text, finishCallback);
+    textRenderer.render(text, () => {
+        if (destroyBubble) {
+            textBubble.destroy();
+            charBubble.destroy();
+            textBubble = null;
+            charBubble = null;
+        }
+
+        finishCallback();
+    });
 };
 
 export {renderText};

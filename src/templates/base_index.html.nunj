@@ -15,6 +15,7 @@
         {% block body %}{% endblock %}
 
         <script src="bower_components/phaser/build/phaser.min.js?{{ assetVersion }}"></script>
+        <script src="bower_components/lodash/dist/lodash.min.js?{{ assetVersion }}"></script>
         {% block javascripts_vendor %}{% endblock %}
         <script>
             window.hw = window.hw || {};

@@ -6,11 +6,11 @@ class AbstractCharacter {
         this.avatarSpriteName = null;
     }
 
-    say(text) {
+    say(text, destroyBubble = false) {
         return new Promise((resolve) => {
             renderText(text, this.avatarSpriteName, () => {
                 resolve();
-            });
+            }, destroyBubble);
         });
     }
 

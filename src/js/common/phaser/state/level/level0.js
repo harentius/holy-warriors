@@ -81,7 +81,7 @@ let level0 = {
                 ])).then(() => stranger.say([
                     'PROBABLY YOU WILL UNDERSTAND',
                     'SOON',
-                ]))
+                ], true))
             ;
         }, phaserGame);
     }
