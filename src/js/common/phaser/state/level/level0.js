@@ -71,13 +71,21 @@ let level0 = {
 
             stranger.walkToPlayer(() => {
                 stranger.say([
-                    "HELLO, JOE",
-                    "I SEE YOU ARE TIRED",
-                    "NEVERTHELESS I WANT TO PROPOSE YOU A JOB, ",
-                    "THAT CAN CHANGE YOUR ENTIRE LIFE."
+                    'HELLO, JOE',
+                    'I SEE YOU ARE TIRED',
+                    'NEVERTHELESS I WANT TO PROPOSE YOU A JOB, ',
+                    'THAT CAN CHANGE YOUR ENTIRE LIFE.',
                 ]).then(() => {
-                    joe.say(["OKAY. IT'S LOOK LIKE, I HAVE NOTHING TO LOSE."]);
-                });
+                    joe.say([
+                        "OKAY. IT'S LOOK LIKE, I HAVE NOTHING TO LOSE.",
+                        'WHAT EXACTLY SHOULD I DO?',
+                    ]).then(() => {
+                        stranger.say([
+                            'PROBABLY YOU WILL UNDERSTAND',
+                            'SOON',
+                        ]);
+                    })
+                })
             });
         }, phaserGame);
     }
