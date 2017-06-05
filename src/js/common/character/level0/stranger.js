@@ -19,27 +19,30 @@ class Stranger extends AbstractCharacter
         }, phaserGame);
     }
 
-    walkToPlayer(behindThePlayerCallback = () => {}) {
+    walkToPlayer() {
         if (!this.characterSprite) {
             throw Error("Invoked action method 'walkToPlayer' without spawning Stranger")
         }
 
-        // Stranger walk
-        phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
-            let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
-            this.characterSprite.visible = false;
-            strangerWalk.animations.add('stranger-walk');
-            strangerWalk.animations.play('stranger-walk', 6, true);
-            phaserGame.time.events.repeat(Phaser.Timer.SECOND / 30, 60, () => {
-                strangerWalk.x += 1;
-            });
-            phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
-                this.characterSprite.x = 29 + 10 * 6;
-                strangerWalk.destroy();
-                this.characterSprite.visible = true;
-                behindThePlayerCallback();
+        return new Promise((resolve) => {
+            // Stranger walk
+            phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
+                let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
+                this.characterSprite.visible = false;
+                strangerWalk.animations.add('stranger-walk');
+                strangerWalk.animations.play('stranger-walk', 6, true);
+                phaserGame.time.events.repeat(Phaser.Timer.SECOND / 30, 60, () => {
+                    strangerWalk.x += 1;
+                });
+                phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
+                    this.characterSprite.x = 29 + 10 * 6;
+                    strangerWalk.destroy();
+                    this.characterSprite.visible = true;
+                    resolve();
+                });
             });
         });
+
     }
 }
 
