@@ -2,6 +2,7 @@ import {phaserGame} from '../../phaser-game';
 import {load} from '../../load';
 import {config} from '../../../config';
 import {Stranger} from '../../../character/level0/stranger';
+import {Joe} from '../../../character/level0/joe';
 
 let level0 = {
     preload: () => {
@@ -12,6 +13,7 @@ let level0 = {
                 'developer-behind-desk-surprised': 'img/level0/developer-behind-desk-surprised.png',
                 'blackout': 'img/level0/blackout.png',
                 'stranger-avatar': 'img/level0/stranger-avatar.png',
+                'developer-avatar': 'img/level0/developer-avatar.png',
             },
             'spritesheet': {
                 'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],
@@ -50,9 +52,8 @@ let level0 = {
             lightSource.animations.play('lightSource', 8);
         }, phaserGame);
 
-        let developerBehindDesk = phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk');
-        developerBehindDesk.animations.add('typing');
-        developerBehindDesk.animations.play('typing', 8, true);
+        let joe = new Joe();
+        joe.spawn();
 
         phaserGame.add.sprite(0, 0, 'blackout');
 
@@ -65,17 +66,18 @@ let level0 = {
 
             // Developer surprised
             phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
-                developerBehindDesk.destroy();
-                phaserGame.add.sprite(103, config.floorPosition - 29, 'developer-behind-desk-surprised');
+                joe.surprise();
             });
 
             stranger.walkToPlayer(() => {
                 stranger.say([
                     "HELLO, JOE",
-                    "I SEE ARE YOU TIRED",
-                    "BUT WHAT IF I'LL PROPOSE YOU A JOB, ",
-                    "THAT CAN CHANGE YOUR ENTIRE LIFE?"
-                ]);
+                    "I SEE YOU ARE TIRED",
+                    "NEVERTHELESS I WANT TO PROPOSE YOU A JOB, ",
+                    "THAT CAN CHANGE YOUR ENTIRE LIFE."
+                ]).then(() => {
+                    joe.say(["OKAY. IT'S LOOK LIKE, I HAVE NOTHING TO LOSE."]);
+                });
             });
         }, phaserGame);
     }

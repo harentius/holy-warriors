@@ -16,7 +16,7 @@ class TextRenderer {
         this.wordDelay = 120;
         this.lineDelay = 400;
         this.finishDelay = 3000;
-        this.maxLinesCount = 3;
+        this.maxLinesCount = 4;
 
         if (avatarSpriteName) {
             this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 148, avatarSpriteName);

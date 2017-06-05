@@ -7,7 +7,11 @@ class AbstractCharacter {
     }
 
     say(text) {
-        renderText(text, this.avatarSpriteName);
+        return new Promise((resolve) => {
+            renderText(text, this.avatarSpriteName, () => {
+                resolve();
+            });
+        });
     }
 
     spawn() {
