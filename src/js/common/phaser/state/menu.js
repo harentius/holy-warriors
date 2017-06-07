@@ -5,7 +5,7 @@ let MenuBuilder = {
     optionCount: 1,
     addEntry: (text, callback) => {
         let menuEntry = phaserGame.add.text(phaserGame.world.centerX, (MenuBuilder.optionCount * 40), text, {
-            font: '20pt BooCity',
+            font: '20px BooCity',
             fill: 'white',
             align: 'left',
             stroke: 'rgba(0,0,0,0)'
