@@ -21,7 +21,7 @@ class Stranger extends AbstractCharacter
 
     walkToPlayer() {
         if (!this.characterSprite) {
-            throw Error("Invoked action method 'walkToPlayer' without spawning Stranger")
+            throw Error("Invoked action method 'walkToPlayer' without spawning Stranger");
         }
 
         return new Promise((resolve) => {
@@ -42,7 +42,17 @@ class Stranger extends AbstractCharacter
                 });
             });
         });
+    }
 
+    openCase() {
+        if (!this.characterSprite) {
+            throw Error("Invoked action method 'openCase' without spawning Stranger");
+        }
+
+        this.characterSprite.visible = false;
+        let strangerOpenCase = phaserGame.add.sprite(29 + 10 * 6, config.floorPosition - 35, 'stranger-open-case');
+        strangerOpenCase.animations.add('stranger-open-case');
+        strangerOpenCase.animations.play('stranger-open-case', 8);
     }
 }
 

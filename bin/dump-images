@@ -24,3 +24,4 @@ aseprite  --batch --trim --oneframe --layer="Blackout" ${file} --sheet ${base_ex
 aseprite  --batch --trim --layer="Light source" ${file} --sheet ${base_export_path}level0/light-source.png
 aseprite  --batch --layer="Stranger walk" ${base_sprite_path}"/level0/stranger-walk.ase" --sheet ${base_export_path}level0/stranger-walk.png
 aseprite  --batch --trim --layer="Stranger Avatar" ${file} --sheet ${base_export_path}level0/stranger-avatar.png
+aseprite  --batch --layer="Stranger Open Case" ${base_sprite_path}"/level0/stranger-open-case.ase" --sheet ${base_export_path}level0/stranger-open-case.png

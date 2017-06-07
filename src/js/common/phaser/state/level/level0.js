@@ -19,6 +19,7 @@ let level0 = {
                 'developer-behind-desk': ['img/level0/developer-behind-desk.png', 40, 29, 8],
                 'stranger': ['img/level0/stranger.png', 16, 35, 8],
                 'stranger-walk': ['img/level0/stranger-walk.png', 23, 40, 6],
+                'stranger-open-case': ['img/level0/stranger-open-case.png', 16, 35, 8],
                 'light-source': ['img/level0/light-source.png', 11, 23, 8],
                 'door': ['img/level0/door.png', 32, 49, 4],
             },
@@ -30,7 +31,7 @@ let level0 = {
     },
     create: () => {
         // Fade in
-        phaserGame.camera.flash('#000000', 2500);
+        phaserGame.camera.flash(0x0, 2500);
 
         // Init audio track
         let audioTyping = phaserGame.add.audio('typing');
@@ -81,7 +82,13 @@ let level0 = {
                 ])).then(() => stranger.say([
                     'PROBABLY YOU WILL UNDERSTAND',
                     'SOON',
-                ], true))
+                ], true)).then(() => {
+                    stranger.openCase();
+                    // Fade out
+                    phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
+                        phaserGame.camera.fade(0xffffff, 1500);
+                    });
+                })
             ;
         }, phaserGame);
     }
