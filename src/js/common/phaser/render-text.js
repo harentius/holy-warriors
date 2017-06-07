@@ -12,9 +12,9 @@ class TextRenderer {
         this.lineIndex = 0;
         this.avatarSprite = null;
 
-        this.wordDelay = 120;
-        this.lineDelay = 400;
-        this.finishDelay = 3000;
+        this.wordDelay = 220;
+        this.lineDelay = 500;
+        this.finishDelay = 5000;
         this.maxLinesCount = 4;
 
         if (avatarSpriteName) {
