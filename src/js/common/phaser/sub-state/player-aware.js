@@ -19,6 +19,7 @@ let playerAware = {
         this.player.animations.add('walk-left', [6, 7, 8, 9, 10, 11]);
         this.player.animations.add('idle-right', [12]);
         this.player.animations.add('idle-left', [18]);
+        this.player.animations.play('idle-right');
         phaserGame.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.body.collideWorldBounds = true;
         phaserGame.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -37,8 +38,10 @@ let playerAware = {
 
             if (this.facing === 'right') {
                 this.player.animations.play('idle-right');
-            } else {
+                this.facing = 'idle-right';
+            } else if (this.facing === 'left')  {
                 this.player.animations.play('idle-left');
+                this.facing = 'idle-left';
             }
         }
 
