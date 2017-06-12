@@ -5,7 +5,7 @@ import {Stranger} from '../../../character/level0/stranger';
 import {Joe} from '../../../character/level0/joe';
 
 let level0 = {
-    preload: () => {
+    preload: function () {
         phaserGame.add.text(80, 80, 'Loading...', {font: '50px BooCity', fill: '#ffffff'});
         load({
             'image': {
@@ -29,7 +29,8 @@ let level0 = {
             }
         }, phaserGame, window.hw.assetVersion);
     },
-    create: () => {
+
+    create: function () {
         // Fade in
         phaserGame.camera.flash(0x0, 2500);
 
@@ -77,7 +78,7 @@ let level0 = {
                     'NEVERTHELESS I WANT TO PROPOSE YOU A JOB, ',
                     'THAT CAN CHANGE YOUR ENTIRE LIFE.',
                 ])).then(() => joe.say([
-                    "OKAY. IT'S LOOK LIKE, I HAVE NOTHING TO LOSE.",
+                    'OKAY. IT LOOKS LIKE, I HAVE NOTHING TO LOSE.',
                     'WHAT EXACTLY SHOULD I DO?',
                 ])).then(() => stranger.say([
                     'PROBABLY YOU WILL UNDERSTAND',
@@ -87,6 +88,10 @@ let level0 = {
                     // Fade out
                     phaserGame.time.events.add(Phaser.Timer.SECOND, () => {
                         phaserGame.camera.fade(0xffffff, 1500);
+
+                        phaserGame.time.events.add(Phaser.Timer.SECOND * 2, () => {
+                            phaserGame.state.start('level1');
+                        });
                     });
                 })
             ;

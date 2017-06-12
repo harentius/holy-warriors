@@ -7,6 +7,7 @@ import {load} from '../load';
         Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
         phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
         phaserGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        phaserGame.physics.arcade.gravity.y = 900;
         phaserGame.state.start('menu');
     },
     preload: () => {

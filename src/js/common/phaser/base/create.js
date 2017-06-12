@@ -57,12 +57,12 @@ export default (phaserGame, config) => {
         bug.body.velocity.x = -50;
     }
 
-    let player = phaserGame.add.sprite(100, 0, 'player');
-    phaserGame.physics.arcade.enable(player);
-    player.body.gravity.y = 900;
-    player.body.collideWorldBounds = true;
-    phaserGame.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
-    phaserGameData.player = player;
+    // let player = phaserGame.add.sprite(100, 0, 'player');
+    // phaserGame.physics.arcade.enable(player);
+    // player.body.gravity.y = 900;
+    // player.body.collideWorldBounds = true;
+    // phaserGame.camera.follow(player, Phaser.Camera.FOLLOW_PLATFORMER);
+    // phaserGameData.player = player;
 
     phaserGameData.keys.cursors = phaserGame.input.keyboard.createCursorKeys();
     phaserGameData.keys.jump = phaserGame.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);

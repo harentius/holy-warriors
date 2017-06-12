@@ -37,6 +37,12 @@ let menu = {
         MenuBuilder.addEntry('Continue', () => {
             phaserGame.state.start(`level${game.level}`);
         });
+        MenuBuilder.addEntry('DEV: Level 0', () => {
+            phaserGame.state.start('level0');
+        });
+        MenuBuilder.addEntry('DEV: Level 1', () => {
+            phaserGame.state.start('level1');
+        });
     }
 };
 
