@@ -12,13 +12,12 @@ let playerAware = {
 
     create: function () {
         this.player = phaserGame.add.sprite(100, 100, 'player', 6);
-        // this.playerWalk = phaserGame.add.sprite(100, 100, 'player-walk');
-        // this.playerWalk.visible = false;
-        // this.player.animations.add('player-walk', 'player-walk');
-        this.player.animations.add('walk-right', [...(new Array(5)).keys()]);
-        this.player.animations.add('walk-left', [6, 7, 8, 9, 10, 11]);
-        this.player.animations.add('idle-right', [12]);
-        this.player.animations.add('idle-left', [18]);
+        this.player.animations.add('walk-right', [...(new Array(5)).keys()], 12, false);
+        this.player.animations.add('walk-left', [6, 7, 8, 9, 10, 11], 12, false);
+        this.player.animations.add('idle-right-start', [12]);
+        this.player.animations.add('idle-left-start', [18]);
+        this.player.animations.add('idle-right', [12, 13, 14, 15, 16, 17], 8, true);
+        this.player.animations.add('idle-left', [18, 19, 20, 21, 22, 23], 8, true);
         this.player.animations.play('idle-right');
         phaserGame.physics.enable(this.player, Phaser.Physics.ARCADE);
         this.player.body.collideWorldBounds = true;
@@ -34,23 +33,30 @@ let playerAware = {
         this.player.body.velocity.x = 0;
 
         if (!this.keys.cursors.left.isDown && !this.keys.cursors.right.isDown) {
-            this.player.animations.stop();
-
             if (this.facing === 'right') {
-                this.player.animations.play('idle-right');
+                this.player.animations.play('idle-right-start');
+                phaserGame.time.events.add(Phaser.Timer.SECOND * 1.5, () => {
+                    this.player.animations.play('idle-right');
+                });
+
                 this.facing = 'idle-right';
             } else if (this.facing === 'left')  {
-                this.player.animations.play('idle-left');
+                this.player.animations.stop();
+                this.player.animations.play('idle-left-start');
+                phaserGame.time.events.add(Phaser.Timer.SECOND * 1.5, () => {
+                    this.player.animations.play('idle-left');
+                });
+
                 this.facing = 'idle-left';
             }
         }
 
         if (this.keys.cursors.left.isDown) {
-            this.player.animations.play('walk-left', 12);
+            this.player.animations.play('walk-left');
             this.player.body.velocity.x = -70;
             this.facing = 'left'
         } else if (this.keys.cursors.right.isDown) {
-            this.player.animations.play('walk-right', 12);
+            this.player.animations.play('walk-right');
             this.player.body.velocity.x = 70;
             this.facing = 'right';
         }
@@ -59,9 +65,6 @@ let playerAware = {
             this.player.body.velocity.y = -200;
             this.jumpTimer = phaserGame.time.now + 250;
         }
-
-        // this.player.visible = true;
-        // this.playerWalk.visible = false;
     }
 };
 
