@@ -1,9 +1,8 @@
 import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser/phaser-game'
-import {config} from '../../config';
+import {phaserGame} from '../../phaser-game'
+import {config} from '../../../config';
 
-class Stranger extends AbstractCharacter
-{
+class Stranger extends AbstractCharacter {
     constructor() {
         super();
         this.avatarSpriteName = 'stranger-avatar';

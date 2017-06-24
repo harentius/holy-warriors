@@ -1,9 +1,8 @@
 import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser/phaser-game'
-import {config} from '../../config';
+import {phaserGame} from '../../phaser-game'
+import {config} from '../../../config';
 
-class Joe extends AbstractCharacter
-{
+class Joe extends AbstractCharacter {
     constructor() {
         super();
         this.characterSprite = null;

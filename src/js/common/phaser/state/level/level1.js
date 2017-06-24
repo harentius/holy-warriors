@@ -1,6 +1,9 @@
 import {load} from '../../load';
 import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
+import {game} from '../../../data/game';
+import {config} from '../../../config';
+import {Lamp} from '../../environment/lamp';
 
 let level1 = {
     preload: function () {
@@ -20,10 +23,14 @@ let level1 = {
     },
 
     create: function () {
+        game.level = 1;
         // Fade in
         phaserGame.camera.flash(0xffffff, 1500);
         phaserGame.add.sprite(0, 0, 'background');
         phaserGame.add.sprite(0, 0, 'blackout');
+
+        let lamp = new Lamp();
+        lamp.spawn();
 
         this.floor = phaserGame.add.tileSprite(0, 135, 320, 8, 'floor');
         phaserGame.physics.enable(this.floor, Phaser.Physics.ARCADE);
@@ -33,7 +40,7 @@ let level1 = {
     },
 
     update: function () {
-        phaserGame.physics.arcade.collide(this.player, this.floor);
+        phaserGame.physics.arcade.collide(this.player.characterSprite, this.floor);
         playerAware.update.call(this);
     }
 };

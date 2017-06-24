@@ -1,8 +1,10 @@
 import {phaserGame} from '../../phaser-game';
 import {load} from '../../load';
 import {config} from '../../../config';
-import {Stranger} from '../../../character/level0/stranger';
-import {Joe} from '../../../character/level0/joe';
+import {Stranger} from '../../character/level0/stranger';
+import {Joe} from '../../character/level0/joe';
+import {game} from '../../../data/game';
+import {Lamp} from '../../environment/lamp';
 
 let level0 = {
     preload: function () {
@@ -31,6 +33,7 @@ let level0 = {
     },
 
     create: function () {
+        game.level = 0;
         // Fade in
         phaserGame.camera.flash(0x0, 2500);
 
@@ -47,12 +50,8 @@ let level0 = {
         let door = phaserGame.add.sprite(20, config.floorPosition - 49, 'door');
         door.animations.add('door-open');
 
-        // Light source sprite and animation
-        let lightSource = phaserGame.add.sprite(130, config.ceilingPosition + 1, 'light-source');
-        lightSource.animations.add('lightSource');
-        phaserGame.time.events.repeat(Phaser.Timer.SECOND * 2, 100500, () => {
-            lightSource.animations.play('lightSource', 8);
-        }, phaserGame);
+        let lamp = new Lamp();
+        lamp.spawn();
 
         let joe = new Joe();
         joe.spawn();

@@ -1,10 +1,11 @@
 import Inventory from './inventory';
 
-export default class Player
-{
-    constructor()
-    {
+class Player {
+    constructor() {
         this.inventory = new Inventory();
         this.healthPoints = 100;
+        this.isPickedWeapon = true;
     }
 }
+
+export {Player}

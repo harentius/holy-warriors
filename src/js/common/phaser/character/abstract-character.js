@@ -1,4 +1,4 @@
-import {renderText} from '../phaser/render-text';
+import {renderText} from '../render-text';
 
 class AbstractCharacter {
     constructor() {
