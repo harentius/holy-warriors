@@ -30,11 +30,11 @@ class Player extends AbstractCharacter {
         this.characterSprite.animations.add('walk-right', [...(new Array(5)).keys()], 12, false);
         this.characterSprite.animations.add('walk-left', [6, 7, 8, 9, 10, 11], 12, false);
 
-        this.characterSprite.animations.add('idle-right-start', [24]);
-        this.characterSprite.animations.add('idle-left-start', [30]);
+        this.characterSprite.animations.add('idle-right-start', [12]);
+        this.characterSprite.animations.add('idle-left-start', [18]);
 
-        this.characterSprite.animations.add('idle-right', [24, 25, 26, 27, 28, 29], 8, true);
-        this.characterSprite.animations.add('idle-left', [30, 31, 32, 33, 34, 35], 8, true);
+        this.characterSprite.animations.add('idle-right', [12, 13, 14, 15, 16, 17], 8, true);
+        this.characterSprite.animations.add('idle-left', [18, 19, 20, 21, 22, 23], 8, true);
 
         this.characterSprite.animations.play('idle-right');
 

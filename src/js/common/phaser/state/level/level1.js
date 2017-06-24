@@ -2,7 +2,6 @@ import {load} from '../../load';
 import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
 import {game} from '../../../data/game';
-import {config} from '../../../config';
 import {Lamp} from '../../environment/lamp';
 
 let level1 = {
