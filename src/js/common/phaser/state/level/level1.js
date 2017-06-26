@@ -50,6 +50,7 @@ let level1 = {
                 'LET ME DRINK A COFFEE',
                 'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS'
             ], true).then(() => this.isActive = true)
+        ;
     },
 
     update: function () {
