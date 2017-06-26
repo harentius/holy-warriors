@@ -2,8 +2,7 @@ import {phaserGame} from '../phaser-game';
 import {game} from '../../data/game';
 import {EVENT_HEALTH_CHANGE, MAX_HEALTH_POINTS} from '../../data/player';
 
-class HealthBar
-{
+class HealthBar {
     constructor() {
         this.playerData = game.playerData;
     }

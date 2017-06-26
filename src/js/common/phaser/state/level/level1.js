@@ -4,6 +4,7 @@ import {playerAware} from '../../sub-state/player-aware';
 import {game} from '../../../data/game';
 import {Lamp} from '../../environment/lamp';
 import {HealthBar} from '../../interface/health-bar';
+import {Coffee} from '../../item/common/coffee'
 
 let level1 = {
     preload: function () {
@@ -36,10 +37,8 @@ let level1 = {
         let lamp = new Lamp();
         lamp.spawn();
 
-        let coffeeGroup = phaserGame.add.group();
-        let coffee = coffeeGroup.create(133, 111, 'coffee');
-        coffee.animations.add('coffee', [...(new Array(8)).keys()], 8, true);
-        coffee.animations.play('coffee');
+        let coffee = new Coffee();
+        coffee.spawn([[133, 111]]);
 
         this.floor = phaserGame.add.tileSprite(0, 135, 320, 8, 'floor');
         phaserGame.physics.enable(this.floor, Phaser.Physics.ARCADE);
