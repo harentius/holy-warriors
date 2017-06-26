@@ -22,10 +22,11 @@ class Player extends AbstractCharacter {
         }
     }
 
-    spawn() {
+    spawn(x = 100) {
+        this.avatarSpriteName = 'developer-avatar';
         this.action = ACTION_IDLE;
         this.direction = DIRECTION_RIGHT;
-        this.characterSprite = phaserGame.add.sprite(100, 100, 'player', 6);
+        this.characterSprite = phaserGame.add.sprite(x, 100, 'player', 6);
 
         this.characterSprite.animations.add('walk-right', [...(new Array(5)).keys()], 12, false);
         this.characterSprite.animations.add('walk-left', [6, 7, 8, 9, 10, 11], 12, false);

@@ -6,8 +6,8 @@ base_sprite_path="src/sprites/"
 echo "Exporting common sprites"
 aseprite --batch --layer="Developer Crutch Attack" ${base_sprite_path}developer-crutch-attack.ase --sheet ${base_export_path}developer-crutch-attack.png
 file=${base_sprite_path}common.ase
-aseprite --batch --trim --layer="Cup" ${file} --sheet ${base_export_path}cup.png
 aseprite --batch --all-layers --split-layers ${base_sprite_path}player.ase --sheet ${base_export_path}player.png
+aseprite --batch ${base_sprite_path}cup.ase --sheet ${base_export_path}cup.png
 #TODO
 aseprite --batch --trim --oneframe --layer="Text Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/text-bubble.png
 aseprite --batch --trim --oneframe --layer="Char Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/char-bubble.png

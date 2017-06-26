@@ -6,6 +6,13 @@ class Game {
         this.playerData = null;
     }
     //TODO: set up load/save
+    save() {
+
+    }
+
+    load() {
+
+    }
 }
 
 if (!game) {

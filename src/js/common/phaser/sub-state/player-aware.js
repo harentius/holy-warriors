@@ -12,8 +12,8 @@ let playerAware = {
         this.player = new Player();
     },
 
-    create: function () {
-        this.player.spawn();
+    create: function (x = 100) {
+        this.player.spawn(x);
         phaserGame.camera.follow(this.player.characterSprite, Phaser.Camera.FOLLOW_PLATFORMER);
         this.keys = {
             cursors: phaserGame.input.keyboard.createCursorKeys(),

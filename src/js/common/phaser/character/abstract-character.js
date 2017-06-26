@@ -14,7 +14,7 @@ class AbstractCharacter {
         });
     }
 
-    spawn() {
+    spawn(x = 0) {
         throw Error('Not implemented');
     }
 }
