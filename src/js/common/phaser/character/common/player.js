@@ -1,7 +1,6 @@
 import {AbstractCharacter} from './../abstract-character';
 import {phaserGame} from '../../phaser-game'
 import {game} from '../../../data/game';
-import {Player as PlayerData} from '../../../data/player';
 
 const ACTION_IDLE = 'idle';
 const ACTION_WALK = 'walk';
@@ -13,13 +12,7 @@ class Player extends AbstractCharacter {
     constructor() {
         super();
         this._scheduledTimer = null;
-
-        if (game.playerData) {
-            this.playerData = game.playerData;
-        } else {
-            this.playerData = new PlayerData();
-            game.playerData = this.playerData;
-        }
+        this.playerData = game.playerData;
     }
 
     spawn(x = 100) {

@@ -3,6 +3,7 @@ import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
 import {game} from '../../../data/game';
 import {Lamp} from '../../environment/lamp';
+import {HealthBar} from '../../interface/health-bar';
 
 let level1 = {
     preload: function () {
@@ -17,6 +18,7 @@ let level1 = {
             'spritesheet': {
                 'light-source': ['img/level0/light-source.png', 11, 23, 8],
                 'coffee': ['img/cup.png', 9, 13, 8],
+                'hearts': ['img/hearts.png', 8, 8, 2],
             },
         }, phaserGame, window.hw.assetVersion);
 
@@ -49,7 +51,11 @@ let level1 = {
                 'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
                 'LET ME DRINK A COFFEE',
                 'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS'
-            ], true).then(() => this.isActive = true)
+            ], true).then(() => {
+                this.isActive = true;
+                let healthBar = new HealthBar();
+                healthBar.showAndWatch();
+            })
         ;
     },
 

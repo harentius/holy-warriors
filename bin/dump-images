@@ -11,6 +11,7 @@ aseprite --batch ${base_sprite_path}cup.ase --sheet ${base_export_path}cup.png
 #TODO
 aseprite --batch --trim --oneframe --layer="Text Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/text-bubble.png
 aseprite --batch --trim --oneframe --layer="Char Bubble" ${base_sprite_path}"/level0/level0.ase" --sheet ${base_export_path}/char-bubble.png
+aseprite --batch ${base_sprite_path}"/hearts.ase" --sheet ${base_export_path}/hearts.png
 
 echo "Exporting level 0 sprites"
 file=${base_sprite_path}"/level0/level0.ase"
