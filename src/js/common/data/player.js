@@ -14,12 +14,12 @@ class Player {
         this.events = {};
     }
 
-    increaseHealth(number) {
+    increaseHealth(number = 1) {
         this.health = Math.min(MAX_HEALTH_POINTS, this.health + number);
         this._trigger(EVENT_HEALTH_CHANGE, this.health);
     }
 
-    decreaseHealth(number) {
+    decreaseHealth(number = 1) {
         this.health = Math.max(MIN_HEALTH_POINTS, this.health - number);
         this._trigger(EVENT_HEALTH_CHANGE, this.health);
     }
@@ -33,7 +33,7 @@ class Player {
     }
 
     _trigger(event, args) {
-        for (let callback in this.events[event]) {
+        for (let callback of this.events[event]) {
             callback(...args);
         }
     }

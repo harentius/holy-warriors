@@ -40,7 +40,8 @@ let level1 = {
         let lamp = new Lamp();
         lamp.spawn();
 
-        this.floor = phaserGame.add.tileSprite(0, 135, 2 * 320, 8, 'floor');
+        phaserGame.add.tileSprite(0, 135, 2 * 320, 8, 'floor');
+
         coffeeAware.create.call(this, [[133, 117]]);
         playerAware.create.call(this, 80);
 

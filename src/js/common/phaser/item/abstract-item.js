@@ -27,11 +27,14 @@ class AbstractItem {
     }
 
     collect(item) {
-        if (item.sprite.key !== this.spriteName) {
-            return;
+        if (item.sprite.key !== this.spriteName || item.hasCollided) {
+            return false;
         }
 
+        item.hasCollided = true;
         item.sprite.kill();
+
+        return true;
     }
 }
 
