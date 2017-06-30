@@ -1,10 +1,11 @@
 import {load} from '../../load';
 import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
+import {coffeeAware} from '../../sub-state/coffee-aware';
 import {game} from '../../../data/game';
 import {Lamp} from '../../environment/lamp';
+import {config} from '../../../config.js';
 import {HealthBar} from '../../interface/health-bar';
-import {Coffee} from '../../item/common/coffee'
 
 let level1 = {
     preload: function () {
@@ -18,12 +19,12 @@ let level1 = {
             },
             'spritesheet': {
                 'light-source': ['img/level0/light-source.png', 11, 23, 8],
-                'coffee': ['img/cup.png', 9, 13, 8],
                 'hearts': ['img/hearts.png', 8, 8, 2],
             },
         }, phaserGame, window.hw.assetVersion);
 
         playerAware.preload.call(this);
+        coffeeAware.preload.call(this);
         this.isActive = false;
     },
 
@@ -34,17 +35,20 @@ let level1 = {
         phaserGame.add.sprite(0, 0, 'background');
         phaserGame.add.sprite(0, 0, 'blackout');
 
+        phaserGame.world.setBounds(0, 0, config.width, 135);
+        phaserGame.physics.p2.updateBoundsCollisionGroup();
         let lamp = new Lamp();
         lamp.spawn();
 
-        let coffee = new Coffee();
-        coffee.spawn([[133, 111]]);
-
-        this.floor = phaserGame.add.tileSprite(0, 135, 320, 8, 'floor');
-        phaserGame.physics.enable(this.floor, Phaser.Physics.ARCADE);
-        this.floor.body.immovable = true;
-        this.floor.body.allowGravity = false;
+        this.floor = phaserGame.add.tileSprite(0, 135, 2 * 320, 8, 'floor');
+        coffeeAware.create.call(this, [[133, 117]]);
         playerAware.create.call(this, 80);
+
+        this.player.characterSprite.body.collides(this.coffee.collisionGroup);
+        this.coffee.itemGroup.forEach((children) => {
+            children.body.collides(this.player.collisionGroup, this.coffee.collect, this.coffee);
+        });
+
         this.player
             .say([
                 'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
@@ -59,12 +63,10 @@ let level1 = {
     },
 
     update: function () {
-        phaserGame.physics.arcade.collide(this.player.characterSprite, this.floor);
-
         if (this.isActive) {
             playerAware.update.call(this);
         }
-    }
+    },
 };
 
 export {level1};

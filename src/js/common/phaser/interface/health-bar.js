@@ -17,7 +17,7 @@ class HealthBar {
     _renderHealth(health) {
         for (let i = 1; i <= MAX_HEALTH_POINTS; i++) {
             let sprite = phaserGame.add.sprite(2 + (i - 1) * 10, 2, 'hearts');
-            sprite.frame = ~~!(health >= i);
+            sprite.frame = ~(health >= i);
         }
     }
 }

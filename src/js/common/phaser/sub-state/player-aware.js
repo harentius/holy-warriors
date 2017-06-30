@@ -9,10 +9,10 @@ let playerAware = {
                 'player': ['img/player.png', 31, 33],
             },
         }, phaserGame, window.hw.assetVersion);
-        this.player = new Player();
     },
 
     create: function (x = 100) {
+        this.player = new Player();
         this.player.spawn(x);
         phaserGame.camera.follow(this.player.characterSprite, Phaser.Camera.FOLLOW_PLATFORMER);
         this.keys = {

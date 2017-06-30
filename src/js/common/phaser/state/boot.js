@@ -5,9 +5,10 @@ import {load} from '../load';
     create: () => {
         phaserGame.add.text(80, 80, 'Boot', {font: '50px BooCity;line', fill: '#ffffff'});
         Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
-        phaserGame.physics.startSystem(Phaser.Physics.ARCADE);
+        phaserGame.physics.startSystem(Phaser.Physics.P2JS);
+        phaserGame.physics.p2.setImpactEvents(true);
         phaserGame.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        phaserGame.physics.arcade.gravity.y = 900;
+        phaserGame.physics.p2.gravity.y = 400;
         phaserGame.state.start('menu');
     },
     preload: () => {
