@@ -12,6 +12,7 @@ class Player {
         this.isPickedWeapon = false;
         this.healthWisible = false;
         this.events = {};
+        this.eventsOnce = {};
     }
 
     increaseHealth(number = 1) {
@@ -32,10 +33,28 @@ class Player {
         this.events[event].push(callback);
     }
 
-    _trigger(event, args) {
-        for (let callback of this.events[event]) {
-            callback(...args);
+    once(event, callback) {
+        if (!this.eventsOnce[event]) {
+            this.eventsOnce[event] = [];
         }
+
+        this.eventsOnce[event].push(callback);
+    }
+
+    _trigger(event, args) {
+        if (this.events[event]) {
+            for (let callback of this.events[event]) {
+                callback(...args);
+            }
+        }
+
+        if (this.eventsOnce[event]) {
+            for (let callback of this.eventsOnce[event]) {
+                callback(...args);
+            }
+        }
+
+        this.eventsOnce[event] = [];
     }
 }
 

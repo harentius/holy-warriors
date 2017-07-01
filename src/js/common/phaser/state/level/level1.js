@@ -3,6 +3,7 @@ import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
 import {coffeeAware} from '../../sub-state/coffee-aware';
 import {game} from '../../../data/game';
+import {EVENT_HEALTH_CHANGE} from '../../../data/player';
 import {Lamp} from '../../environment/lamp';
 import {config} from '../../../config.js';
 import {HealthBar} from '../../interface/health-bar';
@@ -59,6 +60,14 @@ let level1 = {
                 this.isActive = true;
                 let healthBar = new HealthBar();
                 healthBar.showAndWatch();
+                game.playerData.once(EVENT_HEALTH_CHANGE, () => {
+                    this.player
+                        .say([
+                            'NOW I FEEL BETTER',
+                            'I SHOULD DRINK COFFEE TO RESTORE HEALTH POINTS',
+                        ], true)
+                    ;
+                });
             })
         ;
     },
