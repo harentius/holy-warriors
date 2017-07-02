@@ -14,6 +14,11 @@ let coffeeAware = {
     create: function (coordinates) {
         this.coffee = new Coffee();
         this.coffee.spawn(coordinates);
+
+        this.player.characterSprite.body.collides(this.coffee.collisionGroup);
+        this.coffee.itemGroup.forEach((children) => {
+            children.body.collides(this.player.collisionGroup, this.coffee.collect, this.coffee);
+        });
     },
 };
 

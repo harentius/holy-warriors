@@ -2,6 +2,7 @@ import {load} from '../../load';
 import {phaserGame} from '../../phaser-game';
 import {playerAware} from '../../sub-state/player-aware';
 import {coffeeAware} from '../../sub-state/coffee-aware';
+import {crutchAware} from '../../sub-state/crutch-aware';
 import {game} from '../../../data/game';
 import {EVENT_HEALTH_CHANGE} from '../../../data/player';
 import {Lamp} from '../../environment/lamp';
@@ -26,6 +27,7 @@ let level1 = {
 
         playerAware.preload.call(this);
         coffeeAware.preload.call(this);
+        crutchAware.preload.call(this);
         this.isActive = false;
     },
 
@@ -43,13 +45,9 @@ let level1 = {
 
         phaserGame.add.tileSprite(0, 135, 2 * 320, 8, 'floor');
 
-        coffeeAware.create.call(this, [[133, 117]]);
         playerAware.create.call(this, 80);
-
-        this.player.characterSprite.body.collides(this.coffee.collisionGroup);
-        this.coffee.itemGroup.forEach((children) => {
-            children.body.collides(this.player.collisionGroup, this.coffee.collect, this.coffee);
-        });
+        coffeeAware.create.call(this, [[133, 117]]);
+        crutchAware.create.call(this, [[213, 122]]);
 
         this.player
             .say([
