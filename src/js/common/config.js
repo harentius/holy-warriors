@@ -1,6 +1,6 @@
 let config = {
-    width: 320,
-    height: 180,
+  width: 320,
+  height: 180,
 };
 
 config.floorPosition = config.height * 3 / 4;

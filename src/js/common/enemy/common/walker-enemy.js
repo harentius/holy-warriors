@@ -1,8 +1,6 @@
 import GroundEnemy from './ground-enemy';
 
-export default class WalkerEnemy extends GroundEnemy
-{
-    constructor()
-    {
-    }
+export default class WalkerEnemy extends GroundEnemy {
+  constructor() {
+  }
 }

@@ -1,11 +1,8 @@
-export default class EnemyManager
-{
-    constructor()
-    {
-    }
+export default class EnemyManager {
+  constructor() {
+  }
 
-    spawn()
-    {
+  spawn() {
 
-    }
+  }
 }

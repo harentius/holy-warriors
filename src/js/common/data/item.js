@@ -1,8 +1,8 @@
-export default class Item
-{
-    constructor()
-    {
-        this.name = null;
-        this.count = 0;
-    }
+class Item {
+  constructor(name, count = 0) {
+    this.name = name;
+    this.count = count;
+  }
 }
+
+export {Item};

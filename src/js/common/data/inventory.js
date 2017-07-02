@@ -1,7 +1,7 @@
-export default class Inventory
-{
-    constructor()
-    {
-        this.items = [];
-    }
+class Inventory {
+  constructor() {
+    this.items = {};
+  }
 }
+
+export {Inventory};
