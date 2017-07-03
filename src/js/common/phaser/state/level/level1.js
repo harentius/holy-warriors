@@ -4,7 +4,7 @@ import {playerAware} from '../../sub-state/player-aware';
 import {coffeeAware} from '../../sub-state/coffee-aware';
 import {crutchAware} from '../../sub-state/crutch-aware';
 import {game} from '../../../data/game';
-import {EVENT_HEALTH_CHANGE} from '../../../data/player';
+import {EVENT_HEALTH_CHANGE, EVENT_PICK_UP_WEAPON} from '../../../data/player';
 import {Lamp} from '../../environment/lamp';
 import {config} from '../../../config.js';
 import {HealthBar} from '../../interface/health-bar';
@@ -49,25 +49,29 @@ let level1 = {
     coffeeAware.create.call(this, [[133, 117]]);
     crutchAware.create.call(this, [[213, 122]]);
 
-    this.player
-      .say([
-        'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
-        'LET ME DRINK A COFFEE',
-        'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS'
-      ], true).then(() => {
+    this.player.say([
+      'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
+      'LET ME DRINK A COFFEE',
+      'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS'
+    ]).then(() => {
       this.isActive = true;
       let healthBar = new HealthBar();
       healthBar.showAndWatch();
-      game.playerData.once(EVENT_HEALTH_CHANGE, () => {
+      game.playerData.eventDispatcher.once(EVENT_HEALTH_CHANGE, () => {
         this.player
           .say([
             'NOW I FEEL BETTER',
             'I SHOULD DRINK COFFEE TO RESTORE HEALTH POINTS',
-          ], true)
-        ;
+            'OH... I SEE A CRUTCH...',
+            'NOBODY KNOWSm WHAT WAIT ME IN THIS DARK ROOM',
+            "IF I TAKE IT, I'LL BE MUCH SAFER",
+          ], true);
       });
-    })
-    ;
+
+      game.playerData.eventDispatcher.once(EVENT_PICK_UP_WEAPON, () => {
+        this.player.pickUpWeapon();
+      });
+    });
   },
 
   update: function() {

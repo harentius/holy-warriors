@@ -13,6 +13,7 @@ class Crutch extends AbstractItem {
     }
 
     let playerData = game.playerData;
+    playerData.addItem(this.spriteName);
   }
 }
 

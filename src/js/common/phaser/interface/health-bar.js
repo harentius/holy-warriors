@@ -9,7 +9,7 @@ class HealthBar {
 
   showAndWatch() {
     this._renderHealth(this.playerData.health);
-    this.playerData.on(EVENT_HEALTH_CHANGE, () => {
+    this.playerData.eventDispatcher.on(EVENT_HEALTH_CHANGE, () => {
       this._renderHealth(this.playerData.health);
     });
   }
