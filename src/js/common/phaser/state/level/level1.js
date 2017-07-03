@@ -38,7 +38,7 @@ let level1 = {
     phaserGame.add.sprite(0, 0, 'background');
     phaserGame.add.sprite(0, 0, 'blackout');
 
-    phaserGame.world.setBounds(0, 0, config.width, 135);
+    phaserGame.world.setBounds(0, 0, config.width, 137);
     phaserGame.physics.p2.updateBoundsCollisionGroup();
     let lamp = new Lamp();
     lamp.spawn();
@@ -74,7 +74,7 @@ let level1 = {
           'LET ME INVESTIGATE OUTSIDE THE ROOM',
           'I CAN USE CRUTCH TO ATTACK INTRUDERS',
           'USING Z KEY',
-        ])
+        ], true)
       });
     });
   },

@@ -64,6 +64,20 @@ class Player extends AbstractCharacter {
     this.action = ACTION_WALK;
   }
 
+  attack () {
+    if (!this.playerData.isPickedWeapon) {
+      return;
+    }
+
+    if (this.direction === DIRECTION_RIGHT) {
+      this.characterSprite.animations.play('attack-right');
+      this._scheduleIdleAnimation('idle-right');
+    } else if (this.direction === DIRECTION_LEFT) {
+      this.characterSprite.animations.play('attack-left');
+      this._scheduleIdleAnimation('idle-left');
+    }
+  }
+
   jump() {
     if (!(phaserGame.time.now > this.jumpTimer && this._checkIfCanJump())) {
       return;
@@ -131,6 +145,11 @@ class Player extends AbstractCharacter {
     this.characterSprite.animations.add('idle-right', generateSequence(12 + shift, 17 + shift), 8, true);
     this.characterSprite.animations.add('idle-left', generateSequence(18 + shift, 23 + shift), 8, true);
     this.characterSprite.animations.play('idle-right');
+
+    if (withWeapon) {
+      this.characterSprite.animations.add('attack-right', generateSequence(48, 53), 12, true);
+      this.characterSprite.animations.add('attack-left', generateSequence(54, 60), 12, true);
+    }
   }
 }
 

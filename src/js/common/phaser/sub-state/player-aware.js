@@ -6,7 +6,7 @@ let playerAware = {
   preload: function() {
     load({
       'spritesheet': {
-        'player': ['img/player.png', 31, 33],
+        'player': ['img/player.png', 38, 36],
       },
     }, phaserGame, window.hw.assetVersion);
   },
@@ -18,6 +18,7 @@ let playerAware = {
     this.keys = {
       cursors: phaserGame.input.keyboard.createCursorKeys(),
       jump: phaserGame.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR),
+      z: phaserGame.input.keyboard.addKey(Phaser.Keyboard.Z),
     };
   },
 
@@ -32,6 +33,10 @@ let playerAware = {
 
     if (this.keys.jump.isDown) {
       this.player.jump();
+    }
+
+    if (this.keys.z.isDown) {
+      this.player.attack();
     }
   }
 };
