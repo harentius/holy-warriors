@@ -53,7 +53,7 @@ let level1 = {
       'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
       'LET ME DRINK A COFFEE',
       'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS'
-    ]).then(() => {
+    ], true).then(() => {
       this.isActive = true;
       let healthBar = new HealthBar();
       healthBar.showAndWatch();
@@ -63,13 +63,18 @@ let level1 = {
             'NOW I FEEL BETTER',
             'I SHOULD DRINK COFFEE TO RESTORE HEALTH POINTS',
             'OH... I SEE A CRUTCH...',
-            'NOBODY KNOWSm WHAT WAIT ME IN THIS DARK ROOM',
+            'NOBODY KNOWS WHAT WAIT ME IN THIS DARK ROOM',
             "IF I TAKE IT, I'LL BE MUCH SAFER",
           ], true);
       });
 
       game.playerData.eventDispatcher.once(EVENT_PICK_UP_WEAPON, () => {
         this.player.pickUpWeapon();
+        this.player.say([
+          'LET ME INVESTIGATE OUTSIDE THE ROOM',
+          'I CAN USE CRUTCH TO ATTACK INTRUDERS',
+          'USING Z KEY',
+        ])
       });
     });
   },

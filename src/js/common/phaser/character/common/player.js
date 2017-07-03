@@ -1,6 +1,7 @@
 import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser-game'
+import {phaserGame} from '../../phaser-game';
 import {game} from '../../../data/game';
+import {generateSequence} from '../../../utils';
 
 const ACTION_IDLE = 'idle';
 const ACTION_WALK = 'walk';
@@ -21,16 +22,7 @@ class Player extends AbstractCharacter {
     this.action = ACTION_IDLE;
     this.direction = DIRECTION_RIGHT;
     this.characterSprite = phaserGame.add.sprite(x, 102, 'player', 6);
-
-    this.characterSprite.animations.add('walk-right', [...(new Array(5)).keys()], 12, false);
-    this.characterSprite.animations.add('walk-left', [6, 7, 8, 9, 10, 11], 12, false);
-
-    this.characterSprite.animations.add('idle-right-start', [12]);
-    this.characterSprite.animations.add('idle-left-start', [18]);
-
-    this.characterSprite.animations.add('idle-right', [12, 13, 14, 15, 16, 17], 8, true);
-    this.characterSprite.animations.add('idle-left', [18, 19, 20, 21, 22, 23], 8, true);
-    this.characterSprite.animations.play('idle-right');
+    this._initAnimations(game.playerData.isPickedWeapon);
     phaserGame.physics.enable(this.characterSprite, Phaser.Physics.P2JS);
     this.characterSprite.body.setRectangle(14, 33);
     this.characterSprite.body.collideWorldBounds = true;
@@ -86,14 +78,8 @@ class Player extends AbstractCharacter {
       throw Error('Inwoked pickUpWeapon, but it is already picked up');
     }
 
-    // this.characterSprite.animations.add('walk-right', [...(new Array(5)).keys()], 12, false);
-    // this.characterSprite.animations.add('walk-left', [6, 7, 8, 9, 10, 11], 12, false);
-    //
-    // this.characterSprite.animations.add('idle-right-start', [24]);
-    // this.characterSprite.animations.add('idle-left-start', [30]);
-    //
-    // this.characterSprite.animations.add('idle-right', [24, 25, 26, 27, 28, 29], 8, true);
-    // this.characterSprite.animations.add('idle-left', [30, 31, 32, 33, 34, 35], 8, true);
+    this.playerData.isPickedWeapon = true;
+    this._initAnimations(true);
   }
 
   _scheduleIdleAnimation(type) {
@@ -127,6 +113,24 @@ class Player extends AbstractCharacter {
     }
 
     return result;
+  }
+
+  _initAnimations(withWeapon = true) {
+    let shift = 0;
+
+    if (withWeapon) {
+      shift = 24;
+    }
+
+    this.characterSprite.animations.add('walk-right', generateSequence(shift, 5 + shift), 12, false);
+    this.characterSprite.animations.add('walk-left', generateSequence(6 + shift, 11 + shift), 12, false);
+
+    this.characterSprite.animations.add('idle-right-start', [12 + shift]);
+    this.characterSprite.animations.add('idle-left-start', [18 + shift]);
+
+    this.characterSprite.animations.add('idle-right', generateSequence(12 + shift, 17 + shift), 8, true);
+    this.characterSprite.animations.add('idle-left', generateSequence(18 + shift, 23 + shift), 8, true);
+    this.characterSprite.animations.play('idle-right');
   }
 }
 
