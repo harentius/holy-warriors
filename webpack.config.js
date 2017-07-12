@@ -5,7 +5,6 @@ const fs = require('fs');
 const argv = require('yargs').argv;
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -55,6 +54,8 @@ const rules = [
 let webpackConfig = {};
 
 if (env === 'dev') {
+  // eslint-disable-next-line
+  const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
   plugins.push(new BrowserSyncPlugin({
     host: process.env.IP || 'localhost',
     port: process.env.PORT || 3000,
