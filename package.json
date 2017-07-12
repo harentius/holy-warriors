@@ -30,7 +30,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-import": "^2.6.1"
   },
   "scripts": {
     "dev": "webpack",
