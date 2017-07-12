@@ -1,6 +1,0 @@
-#!/bin/sh
-
-bin_dir=$(cd $(dirname $0) && pwd)
-base_dir=$(cd "$bin_dir/.." && pwd)
-
-"$bin_dir/install"
