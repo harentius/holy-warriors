@@ -11,6 +11,7 @@ canvas {
   -ms-interpolation-mode: nearest-neighbor;
 }
 
+/*TODO: TO BE Removed*/
 @font-face {
   font-family: 'BooCity';
   src: url('../fonts/BooCity.ttf');

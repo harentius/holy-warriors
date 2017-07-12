@@ -1,13 +1,12 @@
-import {phaserGame} from './phaser-game';
+import { phaserGame } from './phaser-game';
 
 class TextRenderer {
-  constructor(phaserGame, avatarSpriteName = null) {
+  constructor(avatarSpriteName = null) {
     this.textContent = null;
     this.phaserGame = phaserGame;
 
     this.textElement = phaserGame.add.bitmapText(43, 145, 'font-BooCity', '', 10);
-    this.finishCallback = () => {
-    };
+    this.finishCallback = () => {};
     this.line = [];
     this.wordIndex = 0;
     this.lineIndex = 0;
@@ -23,8 +22,7 @@ class TextRenderer {
     }
   }
 
-  render(text, finishCallback = () => {
-         }) {
+  render(text, finishCallback = () => {}) {
     this.textContent = text;
     this.finishCallback = finishCallback;
     this._nextLine();
@@ -38,7 +36,7 @@ class TextRenderer {
     }
 
     if ((this.lineIndex + 2) > this.maxLinesCount) {
-      let text = this.textElement.text.split('\n');
+      const text = this.textElement.text.split('\n');
       text.shift();
       this.textElement.text = text.join('\n');
     }
@@ -59,8 +57,7 @@ class TextRenderer {
     }
   }
 
-  _scheduleDestroy(finishDelay, finishCallback = () => {
-                   }) {
+  _scheduleDestroy(finishDelay, finishCallback = () => {}) {
     this.phaserGame.time.events.add(finishDelay, () => {
       this.textElement.destroy();
 
@@ -76,14 +73,18 @@ class TextRenderer {
 let charBubble;
 let textBubble;
 
-let renderText = (text, avatarSpriteName = null, finishCallback = () => {
-                  }, destroyBubble = false) => {
+const renderText = (
+  text,
+  avatarSpriteName = null,
+  finishCallback = () => {},
+  destroyBubble = false,
+) => {
   if (!charBubble && !textBubble) {
     charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
     textBubble = phaserGame.add.sprite(39, 145, 'text-bubble');
   }
 
-  let textRenderer = new TextRenderer(phaserGame, avatarSpriteName);
+  const textRenderer = new TextRenderer(avatarSpriteName);
   textRenderer.render(text, () => {
     if (destroyBubble) {
       textBubble.destroy();
@@ -96,4 +97,4 @@ let renderText = (text, avatarSpriteName = null, finishCallback = () => {
   });
 };
 
-export {renderText};
+export { renderText };

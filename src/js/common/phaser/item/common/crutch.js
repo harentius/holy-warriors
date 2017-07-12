@@ -1,5 +1,5 @@
-import {AbstractItem} from '../abstract-item'
-import {game} from '../../../data/game';
+import { AbstractItem } from '../abstract-item';
+import { game } from '../../../data/game';
 
 class Crutch extends AbstractItem {
   constructor() {
@@ -12,9 +12,9 @@ class Crutch extends AbstractItem {
       return;
     }
 
-    let playerData = game.playerData;
+    const playerData = game.playerData;
     playerData.addItem(this.spriteName);
   }
 }
 
-export {Crutch};
+export { Crutch };

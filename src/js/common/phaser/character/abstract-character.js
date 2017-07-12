@@ -1,4 +1,4 @@
-import {renderText} from '../render-text';
+import { renderText } from '../render-text';
 
 class AbstractCharacter {
   constructor() {
@@ -14,9 +14,10 @@ class AbstractCharacter {
     });
   }
 
+  // eslint-disable-next-line
   spawn(x = 0) {
     throw Error('Not implemented');
   }
 }
 
-export {AbstractCharacter};
+export { AbstractCharacter };

@@ -4,4 +4,4 @@ class Inventory {
   }
 }
 
-export {Inventory};
+export { Inventory };

@@ -1,5 +1,5 @@
-import {AbstractItem} from '../abstract-item'
-import {game} from '../../../data/game';
+import { AbstractItem } from '../abstract-item';
+import { game } from '../../../data/game';
 
 class Coffee extends AbstractItem {
   constructor() {
@@ -12,9 +12,9 @@ class Coffee extends AbstractItem {
       return;
     }
 
-    let playerData = game.playerData;
+    const playerData = game.playerData;
     playerData.increaseHealth();
   }
 }
 
-export {Coffee};
+export { Coffee };

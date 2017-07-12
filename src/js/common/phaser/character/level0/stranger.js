@@ -1,6 +1,7 @@
-import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser-game'
-import {config} from '../../../config';
+import { Phaser } from 'phaser';
+import { AbstractCharacter } from './../abstract-character';
+import { phaserGame } from '../../phaser-game';
+import { config } from '../../../config';
 
 class Stranger extends AbstractCharacter {
   constructor() {
@@ -26,7 +27,7 @@ class Stranger extends AbstractCharacter {
     return new Promise((resolve) => {
       // Stranger walk
       phaserGame.time.events.add(Phaser.Timer.SECOND * 3, () => {
-        let strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
+        const strangerWalk = phaserGame.add.sprite(29, config.floorPosition - 40, 'stranger-walk');
         this.characterSprite.visible = false;
         strangerWalk.animations.add('stranger-walk');
         strangerWalk.animations.play('stranger-walk', 6, true);
@@ -49,10 +50,10 @@ class Stranger extends AbstractCharacter {
     }
 
     this.characterSprite.visible = false;
-    let strangerOpenCase = phaserGame.add.sprite(29 + 10 * 6, config.floorPosition - 35, 'stranger-open-case');
+    const strangerOpenCase = phaserGame.add.sprite(29 + 10 * 6, config.floorPosition - 35, 'stranger-open-case');
     strangerOpenCase.animations.add('stranger-open-case');
     strangerOpenCase.animations.play('stranger-open-case', 8);
   }
 }
 
-export {Stranger};
+export { Stranger };

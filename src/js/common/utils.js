@@ -1,5 +1,5 @@
 function generateSequence(start, end) {
-  let arr = [];
+  const arr = [];
 
   for (let i = start; i <= end; i++) {
     arr.push(i);
@@ -8,4 +8,4 @@ function generateSequence(start, end) {
   return arr;
 }
 
-export {generateSequence};
+export { generateSequence };

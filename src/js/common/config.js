@@ -1,4 +1,4 @@
-let config = {
+const config = {
   width: 320,
   height: 180,
 };
@@ -6,4 +6,4 @@ let config = {
 config.floorPosition = config.height * 3 / 4;
 config.ceilingPosition = 63;
 
-export {config};
+export { config };

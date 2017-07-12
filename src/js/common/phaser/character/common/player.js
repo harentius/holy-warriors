@@ -1,7 +1,10 @@
-import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser-game';
-import {game} from '../../../data/game';
-import {generateSequence} from '../../../utils';
+import { Phaser } from 'phaser';
+// eslint-disable-next-line
+import p2 from 'p2';
+import { AbstractCharacter } from './../abstract-character';
+import { phaserGame } from '../../phaser-game';
+import { game } from '../../../data/game';
+import { generateSequence } from '../../../utils';
 
 const ACTION_IDLE = 'idle';
 const ACTION_WALK = 'walk';
@@ -15,10 +18,10 @@ class Player extends AbstractCharacter {
     this._scheduledTimer = null;
     this.playerData = game.playerData;
     this.jumpTimer = 0;
+    this.avatarSpriteName = 'developer-avatar';
   }
 
   spawn(x = 100) {
-    this.avatarSpriteName = 'developer-avatar';
     this.action = ACTION_IDLE;
     this.direction = DIRECTION_RIGHT;
     this.characterSprite = phaserGame.add.sprite(x, 102, 'player', 6);
@@ -64,7 +67,7 @@ class Player extends AbstractCharacter {
     this.action = ACTION_WALK;
   }
 
-  attack () {
+  attack() {
     if (!this.playerData.isPickedWeapon) {
       return;
     }
@@ -107,13 +110,16 @@ class Player extends AbstractCharacter {
   }
 
   _checkIfCanJump() {
-    let yAxis = p2.vec2.fromValues(0, 1);
+    const yAxis = p2.vec2.fromValues(0, 1);
     let result = false;
 
     for (let i = 0; i < phaserGame.physics.p2.world.narrowphase.contactEquations.length; i++) {
-      let c = phaserGame.physics.p2.world.narrowphase.contactEquations[i];
+      const c = phaserGame.physics.p2.world.narrowphase.contactEquations[i];
 
-      if (c.bodyA === this.characterSprite.body.data || c.bodyB === this.characterSprite.body.data) {
+      if (
+        c.bodyA === this.characterSprite.body.data ||
+        c.bodyB === this.characterSprite.body.data
+      ) {
         let d = p2.vec2.dot(c.normalA, yAxis);
 
         if (c.bodyA === this.characterSprite.body.data) {
@@ -153,4 +159,4 @@ class Player extends AbstractCharacter {
   }
 }
 
-export {Player};
+export { Player };

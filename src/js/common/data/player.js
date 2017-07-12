@@ -1,6 +1,7 @@
-import {Inventory} from './inventory';
-import {Item} from './item';
 import EventClass from 'event-class';
+import { Inventory } from './inventory';
+import { Item } from './item';
+
 const MIN_HEALTH_POINTS = 0;
 const MAX_HEALTH_POINTS = 5;
 
@@ -48,4 +49,4 @@ class Player {
   }
 }
 
-export {Player, EVENT_HEALTH_CHANGE, EVENT_PICK_UP_WEAPON, MIN_HEALTH_POINTS, MAX_HEALTH_POINTS}
+export { Player, EVENT_HEALTH_CHANGE, EVENT_PICK_UP_WEAPON, MIN_HEALTH_POINTS, MAX_HEALTH_POINTS };

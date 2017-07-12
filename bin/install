@@ -3,9 +3,8 @@
 bin_dir=$(cd $(dirname $0) && pwd)
 base_dir=$(cd "$bin_dir/.." && pwd)
 
-bower install
-npm install
+npm install --production
 
 echo -n "prod" > "$base_dir/.env"
 
-./node_modules/gulp/bin/gulp.js
+npm run prod

@@ -7,3 +7,4 @@ build-config.json
 /platforms
 /plugins
 .env
+/npm-debug.log

@@ -1,6 +1,6 @@
-import {AbstractCharacter} from './../abstract-character';
-import {phaserGame} from '../../phaser-game'
-import {config} from '../../../config';
+import { AbstractCharacter } from './../abstract-character';
+import { phaserGame } from '../../phaser-game';
+import { config } from '../../../config';
 
 class Joe extends AbstractCharacter {
   constructor() {
@@ -21,4 +21,4 @@ class Joe extends AbstractCharacter {
   }
 }
 
-export {Joe};
+export { Joe };

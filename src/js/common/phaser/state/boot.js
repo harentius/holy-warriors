@@ -1,9 +1,10 @@
-import {phaserGame} from '../phaser-game';
-import {load} from '../load';
+import { Phaser } from 'phaser';
+import { phaserGame } from '../phaser-game';
+import { load } from '../load';
 
-let boot = {
+const boot = {
   create: () => {
-    phaserGame.add.text(80, 80, 'Boot', {font: '50px BooCity;line', fill: '#ffffff'});
+    phaserGame.add.text(80, 80, 'Boot', { font: '50px BooCity;line', fill: '#ffffff' });
     Phaser.Canvas.setSmoothingEnabled(phaserGame.context, false);
     phaserGame.physics.startSystem(Phaser.Physics.P2JS);
     phaserGame.physics.p2.setImpactEvents(true);
@@ -13,15 +14,15 @@ let boot = {
   },
   preload: () => {
     load({
-      'image': {
+      image: {
         'text-bubble': 'img/text-bubble.png',
         'char-bubble': 'img/char-bubble.png',
       },
-      'bitmapFont': {
+      bitmapFont: {
         'font-BooCity': ['fonts/BooCity/font.png', 'fonts/BooCity/font.fnt'],
-      }
-    }, phaserGame, window.hw.assetVersion);
-  }
+      },
+    }, phaserGame);
+  },
 };
 
-export {boot};
+export { boot };

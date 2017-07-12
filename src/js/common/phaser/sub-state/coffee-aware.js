@@ -1,17 +1,17 @@
-import {load} from '../load';
-import {phaserGame} from '../phaser-game';
-import {Coffee} from '../item/common/coffee'
+import { load } from '../load';
+import { phaserGame } from '../phaser-game';
+import { Coffee } from '../item/common/coffee';
 
-let coffeeAware = {
-  preload: function() {
+const coffeeAware = {
+  preload() {
     load({
-      'spritesheet': {
-        'coffee': ['img/cup.png', 9, 13, 8],
+      spritesheet: {
+        coffee: ['img/cup.png', 9, 13, 8],
       },
-    }, phaserGame, window.hw.assetVersion);
+    }, phaserGame);
   },
 
-  create: function(coordinates) {
+  create(coordinates) {
     this.coffee = new Coffee();
     this.coffee.spawn(coordinates);
 
@@ -22,4 +22,4 @@ let coffeeAware = {
   },
 };
 
-export {coffeeAware};
+export { coffeeAware };

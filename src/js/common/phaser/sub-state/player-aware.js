@@ -1,17 +1,18 @@
-import {load} from '../load';
-import {phaserGame} from '../phaser-game';
-import {Player} from '../character/common/player';
+import { Phaser } from 'phaser';
+import { load } from '../load';
+import { phaserGame } from '../phaser-game';
+import { Player } from '../character/common/player';
 
-let playerAware = {
-  preload: function() {
+const playerAware = {
+  preload() {
     load({
-      'spritesheet': {
-        'player': ['img/player.png', 38, 36],
+      spritesheet: {
+        player: ['img/player.png', 38, 36],
       },
-    }, phaserGame, window.hw.assetVersion);
+    }, phaserGame);
   },
 
-  create: function(x = 100) {
+  create(x = 100) {
     this.player = new Player();
     this.player.spawn(x);
     phaserGame.camera.follow(this.player.characterSprite, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -22,7 +23,7 @@ let playerAware = {
     };
   },
 
-  update: function() {
+  update() {
     if (!this.keys.cursors.left.isDown && !this.keys.cursors.right.isDown) {
       this.player.walkStop();
     } else if (this.keys.cursors.left.isDown) {
@@ -38,7 +39,7 @@ let playerAware = {
     if (this.keys.z.isDown) {
       this.player.attack();
     }
-  }
+  },
 };
 
-export {playerAware};
+export { playerAware };

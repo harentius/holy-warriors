@@ -1,17 +1,17 @@
-import {load} from '../load';
-import {phaserGame} from '../phaser-game';
-import {Crutch} from '../item/common/crutch'
+import { load } from '../load';
+import { phaserGame } from '../phaser-game';
+import { Crutch } from '../item/common/crutch';
 
-let crutchAware = {
-  preload: function() {
+const crutchAware = {
+  preload() {
     load({
-      'spritesheet': {
-        'crutch': ['img/crutch.png', 22, 26, 8],
+      spritesheet: {
+        crutch: ['img/crutch.png', 22, 26, 8],
       },
-    }, phaserGame, window.hw.assetVersion);
+    }, phaserGame);
   },
 
-  create: function(coordinates) {
+  create(coordinates) {
     this.crutch = new Crutch();
     this.crutch.spawn(coordinates);
 
@@ -22,4 +22,4 @@ let crutchAware = {
   },
 };
 
-export {crutchAware};
+export { crutchAware };

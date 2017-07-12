@@ -1,30 +1,23 @@
-let load = (resources, phaserGame, version) => {
-  let processPath = (path, version) => {
-    return `${path}?v=${version}`;
-  };
+const load = (resources, phaserGame) => {
+  const processPath = (path) => `${path}?v=${ASSET_VERSION}`;
 
-  for (const type in resources) {
-    if (!resources.hasOwnProperty(type)) {
-      continue;
-    }
+  Object.entries(resources).forEach((typeEntry) => {
+    const type = typeEntry[0];
 
-    for (const key in resources[type]) {
-      if (!resources[type].hasOwnProperty(key)) {
-        continue;
-      }
+    Object.entries(typeEntry[1]).forEach((entry) => {
+      let args = [entry[0]];
 
-      let args = [key];
-
-      if (resources[type][key] instanceof Array) {
-        resources[type][key][0] = processPath(resources[type][key][0]);
-        args = args.concat(resources[type][key]);
+      if (entry[1] instanceof Array) {
+        // eslint-disable-next-line
+        entry[1][0] = processPath(entry[1][0]);
+        args = args.concat(entry[1]);
       } else {
-        args.push(processPath(resources[type][key], version));
+        args.push(processPath(entry[1]));
       }
 
       phaserGame.load[type](...args);
-    }
-  }
+    });
+  });
 };
 
-export {load};
+export { load };

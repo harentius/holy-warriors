@@ -1,4 +1,4 @@
-import {Player as PlayerData} from './player';
+import { Player as PlayerData } from './player';
 
 let game = null;
 
@@ -8,7 +8,7 @@ class Game {
     this.playerData = new PlayerData();
   }
 
-  //TODO: set up load/save
+  // TODO: set up load/save
   save() {
 
   }
@@ -22,4 +22,4 @@ if (!game) {
   game = new Game();
 }
 
-export {game};
+export { game };
