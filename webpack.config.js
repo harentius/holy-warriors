@@ -99,7 +99,7 @@ webpackConfig = Object.assign(webpackConfig, {
   },
   output: {
     path: path.resolve(__dirname, './www/js'),
-    publicPath: '/www/js/',
+    publicPath: '/js/',
     filename: 'bundle.js',
   },
   plugins,
