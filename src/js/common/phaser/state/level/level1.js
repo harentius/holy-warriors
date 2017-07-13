@@ -15,6 +15,7 @@ const level1 = {
     load({
       image: {
         blackout: 'img/level0/blackout.png',
+        'blackout-play-area': 'img/level1/blackout-play-area.png',
         background: 'img/level1/background.png',
         floor: 'img/level1/floor.png',
         'developer-avatar': 'img/level0/developer-avatar.png',
@@ -28,7 +29,6 @@ const level1 = {
     playerAware.preload.call(this);
     coffeeAware.preload.call(this);
     crutchAware.preload.call(this);
-    this.isActive = false;
   },
 
   create() {
@@ -49,15 +49,21 @@ const level1 = {
     coffeeAware.create.call(this, [[133, 117]]);
     crutchAware.create.call(this, [[213, 122]]);
 
+    this.blackoutPlayAreaSprite = phaserGame.add.sprite(0, 0, 'blackout-play-area');
+    this.blackoutPlayAreaSprite.visible = false;
+
+    this._setIsActive(false);
+
     this.player.say([
       'HM... I AM TOO TIRED. MAY BE, THAT WAS JUST A HALLUCINATION',
       'LET ME DRINK A COFFEE',
       'TO WALK LEFT/RIGHT, I CAN USE ARROWS KEYS',
     ], true).then(() => {
-      this.isActive = true;
+      this._setIsActive(true);
       const healthBar = new HealthBar();
       healthBar.showAndWatch();
       game.playerData.eventDispatcher.once(EVENT_HEALTH_CHANGE, () => {
+        this._setIsActive(false);
         this.player
           .say([
             'NOW I FEEL BETTER',
@@ -65,16 +71,17 @@ const level1 = {
             'OH... I SEE A CRUTCH...',
             'NOBODY KNOWS WHAT WAIT ME IN THIS DARK ROOM',
             "IF I TAKE IT, I'LL BE MUCH SAFER",
-          ], true);
+          ], true).then(() => this._setIsActive(true));
       });
 
       game.playerData.eventDispatcher.once(EVENT_PICK_UP_WEAPON, () => {
+        this._setIsActive(false);
         this.player.pickUpWeapon();
         this.player.say([
           'LET ME INVESTIGATE OUTSIDE THE ROOM',
           'I CAN USE CRUTCH TO ATTACK INTRUDERS',
           'USING Z KEY',
-        ], true);
+        ], true).then(() => this._setIsActive(true));
       });
     });
   },
@@ -82,7 +89,14 @@ const level1 = {
   update() {
     if (this.isActive) {
       playerAware.update.call(this);
+    } else {
+      this.player.walkStop();
     }
+  },
+
+  _setIsActive(isActive) {
+    this.isActive = isActive;
+    this.blackoutPlayAreaSprite.visible = !isActive;
   },
 };
 
