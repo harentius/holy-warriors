@@ -14,7 +14,7 @@ const level1 = {
     phaserGame.add.text(80, 80, 'Loading...', { font: '50px BooCity', fill: '#ffffff' });
     load({
       image: {
-        blackout: 'img/level0/blackout.png',
+        blackout: 'img/level1/blackout.png',
         'blackout-play-area': 'img/level1/blackout-play-area.png',
         background: 'img/level1/background.png',
         floor: 'img/level1/floor.png',
@@ -38,7 +38,7 @@ const level1 = {
     phaserGame.add.sprite(0, 0, 'background');
     phaserGame.add.sprite(0, 0, 'blackout');
 
-    phaserGame.world.setBounds(0, 0, config.width, 137);
+    phaserGame.world.setBounds(0, 0, config.width * 2, 137);
     phaserGame.physics.p2.updateBoundsCollisionGroup();
     const lamp = new Lamp();
     lamp.spawn();

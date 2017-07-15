@@ -24,6 +24,12 @@ const playerAware = {
   },
 
   update() {
+    if (this.keys.z.isDown) {
+      this.player.walkStop();
+      this.player.attack();
+      return;
+    }
+
     if (!this.keys.cursors.left.isDown && !this.keys.cursors.right.isDown) {
       this.player.walkStop();
     } else if (this.keys.cursors.left.isDown) {
@@ -34,10 +40,6 @@ const playerAware = {
 
     if (this.keys.jump.isDown) {
       this.player.jump();
-    }
-
-    if (this.keys.z.isDown) {
-      this.player.attack();
     }
   },
 };

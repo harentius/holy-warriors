@@ -32,3 +32,4 @@ file=${base_sprite_path}"/level1/level1.ase"
 aseprite --batch --trim --oneframe --layer="Background" ${file} --sheet ${base_export_path}level1/background.png
 aseprite --batch --trim --oneframe --layer="Floor" ${file} --sheet ${base_export_path}level1/floor.png
 aseprite --batch --oneframe --layer="Blackout play area" ${file} --sheet ${base_export_path}level1/blackout-play-area.png
+aseprite --batch --trim --oneframe --layer="Blackout" ${file} --sheet ${base_export_path}level1/blackout.png
