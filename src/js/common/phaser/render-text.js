@@ -6,6 +6,7 @@ class TextRenderer {
     this.phaserGame = phaserGame;
 
     this.textElement = phaserGame.add.bitmapText(43, 145, 'font-BooCity', '', 10);
+    this.textElement.fixedToCamera = true;
     this.finishCallback = () => {};
     this.line = [];
     this.wordIndex = 0;
@@ -19,6 +20,7 @@ class TextRenderer {
 
     if (avatarSpriteName) {
       this.avatarSprite = phaserGame.add.sprite(2 + (35 - 24) / 2, 148, avatarSpriteName);
+      this.avatarSprite.fixedToCamera = true;
     }
   }
 
@@ -81,7 +83,9 @@ const renderText = (
 ) => {
   if (!charBubble && !textBubble) {
     charBubble = phaserGame.add.sprite(2, 145, 'char-bubble');
+    charBubble.fixedToCamera = true;
     textBubble = phaserGame.add.sprite(39, 145, 'text-bubble');
+    textBubble.fixedToCamera = true;
   }
 
   const textRenderer = new TextRenderer(avatarSpriteName);
